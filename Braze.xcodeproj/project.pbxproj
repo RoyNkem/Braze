@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBD82928E25B440051FC88 /* CircleButtonView.swift */; };
 		30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88728E231A600393AB3 /* BrazeApp.swift */; };
 		30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88928E231A600393AB3 /* ContentView.swift */; };
 		30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BA28E2326700393AB3 /* Extension.swift */; };
 		30DDA8BC28E2326700393AB3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BA28E2326700393AB3 /* Extension.swift */; };
 		30DDA8BD28E2326700393AB3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BA28E2326700393AB3 /* Extension.swift */; };
+		30DDA8BF28E24C1500393AB3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BE28E24C1500393AB3 /* Buttons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30BBD82928E25B440051FC88 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		30DDA88428E231A600393AB3 /* Braze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DDA88728E231A600393AB3 /* BrazeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeApp.swift; sourceTree = "<group>"; };
 		30DDA88928E231A600393AB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		30DDA8A928E231B000393AB3 /* BrazeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		30DDA8B628E2323400393AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Resources/Assets.xcassets; sourceTree = "<group>"; };
 		30DDA8BA28E2326700393AB3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		30DDA8BE28E24C1500393AB3 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30BBD82428E25A160051FC88 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				30DDA8C228E257BB00393AB3 /* Views */,
+				30BBD82528E25A470051FC88 /* ViewModels */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		30BBD82528E25A470051FC88 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		30BBD82628E25A730051FC88 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				30BBD82728E25A810051FC88 /* CircleButton */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		30BBD82728E25A810051FC88 /* CircleButton */ = {
+			isa = PBXGroup;
+			children = (
+				30BBD82928E25B440051FC88 /* CircleButtonView.swift */,
+			);
+			path = CircleButton;
+			sourceTree = "<group>";
+		};
+		30BBD82828E25AD60051FC88 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				30DDA8BA28E2326700393AB3 /* Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		30DDA87B28E231A600393AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +149,13 @@
 			isa = PBXGroup;
 			children = (
 				30DDA88728E231A600393AB3 /* BrazeApp.swift */,
-				30DDA88928E231A600393AB3 /* ContentView.swift */,
-				30DDA8B628E2323400393AB3 /* Assets.xcassets */,
-				30DDA89028E231B000393AB3 /* Persistence.swift */,
-				30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */,
+				30BBD82628E25A730051FC88 /* Components */,
+				30BBD82428E25A160051FC88 /* Home */,
 				30DDA88D28E231B000393AB3 /* Preview Content */,
-				30DDA8BA28E2326700393AB3 /* Extension.swift */,
+				30BBD82828E25AD60051FC88 /* Extensions */,
+				30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */,
+				30DDA89028E231B000393AB3 /* Persistence.swift */,
+				30DDA8B628E2323400393AB3 /* Assets.xcassets */,
 			);
 			path = Braze;
 			sourceTree = "<group>";
@@ -138,6 +183,15 @@
 				30DDA8A928E231B000393AB3 /* BrazeUITestsLaunchTests.swift */,
 			);
 			path = BrazeUITests;
+			sourceTree = "<group>";
+		};
+		30DDA8C228E257BB00393AB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30DDA88928E231A600393AB3 /* ContentView.swift */,
+				30DDA8BE28E24C1500393AB3 /* Buttons.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +328,9 @@
 			files = (
 				30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */,
 				30DDA89128E231B000393AB3 /* Persistence.swift in Sources */,
+				30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */,
 				30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */,
+				30DDA8BF28E24C1500393AB3 /* Buttons.swift in Sources */,
 				30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */,
 				30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */,
 			);
