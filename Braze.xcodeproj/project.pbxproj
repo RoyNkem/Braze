@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88728E231A600393AB3 /* BrazeApp.swift */; };
+		30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88928E231A600393AB3 /* ContentView.swift */; };
+		30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */; };
+		30DDA89128E231B000393AB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA89028E231B000393AB3 /* Persistence.swift */; };
+		30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */; };
+		30DDA89E28E231B000393AB3 /* BrazeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA89D28E231B000393AB3 /* BrazeTests.swift */; };
+		30DDA8A828E231B000393AB3 /* BrazeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8A728E231B000393AB3 /* BrazeUITests.swift */; };
+		30DDA8AA28E231B000393AB3 /* BrazeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8A928E231B000393AB3 /* BrazeUITestsLaunchTests.swift */; };
+		30DDA8B728E2323400393AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA8B628E2323400393AB3 /* Assets.xcassets */; };
+		30DDA8B828E2323400393AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA8B628E2323400393AB3 /* Assets.xcassets */; };
+		30DDA8B928E2323400393AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA8B628E2323400393AB3 /* Assets.xcassets */; };
+		30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BA28E2326700393AB3 /* Extension.swift */; };
+		30DDA8BC28E2326700393AB3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BA28E2326700393AB3 /* Extension.swift */; };
+		30DDA8BD28E2326700393AB3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BA28E2326700393AB3 /* Extension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30DDA89A28E231B000393AB3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30DDA87C28E231A600393AB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30DDA88328E231A600393AB3;
+			remoteInfo = Braze;
+		};
+		30DDA8A428E231B000393AB3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30DDA87C28E231A600393AB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30DDA88328E231A600393AB3;
+			remoteInfo = Braze;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		30DDA88428E231A600393AB3 /* Braze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braze.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DDA88728E231A600393AB3 /* BrazeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeApp.swift; sourceTree = "<group>"; };
+		30DDA88928E231A600393AB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		30DDA89028E231B000393AB3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		30DDA89328E231B000393AB3 /* Braze.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Braze.xcdatamodel; sourceTree = "<group>"; };
+		30DDA89928E231B000393AB3 /* BrazeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrazeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DDA89D28E231B000393AB3 /* BrazeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeTests.swift; sourceTree = "<group>"; };
+		30DDA8A328E231B000393AB3 /* BrazeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrazeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DDA8A728E231B000393AB3 /* BrazeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeUITests.swift; sourceTree = "<group>"; };
+		30DDA8A928E231B000393AB3 /* BrazeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		30DDA8B628E2323400393AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Resources/Assets.xcassets; sourceTree = "<group>"; };
+		30DDA8BA28E2326700393AB3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30DDA88128E231A600393AB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DDA89628E231B000393AB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DDA8A028E231B000393AB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30DDA87B28E231A600393AB3 = {
+			isa = PBXGroup;
+			children = (
+				30DDA88628E231A600393AB3 /* Braze */,
+				30DDA89C28E231B000393AB3 /* BrazeTests */,
+				30DDA8A628E231B000393AB3 /* BrazeUITests */,
+				30DDA88528E231A600393AB3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30DDA88528E231A600393AB3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30DDA88428E231A600393AB3 /* Braze.app */,
+				30DDA89928E231B000393AB3 /* BrazeTests.xctest */,
+				30DDA8A328E231B000393AB3 /* BrazeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30DDA88628E231A600393AB3 /* Braze */ = {
+			isa = PBXGroup;
+			children = (
+				30DDA88728E231A600393AB3 /* BrazeApp.swift */,
+				30DDA88928E231A600393AB3 /* ContentView.swift */,
+				30DDA8B628E2323400393AB3 /* Assets.xcassets */,
+				30DDA89028E231B000393AB3 /* Persistence.swift */,
+				30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */,
+				30DDA88D28E231B000393AB3 /* Preview Content */,
+				30DDA8BA28E2326700393AB3 /* Extension.swift */,
+			);
+			path = Braze;
+			sourceTree = "<group>";
+		};
+		30DDA88D28E231B000393AB3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		30DDA89C28E231B000393AB3 /* BrazeTests */ = {
+			isa = PBXGroup;
+			children = (
+				30DDA89D28E231B000393AB3 /* BrazeTests.swift */,
+			);
+			path = BrazeTests;
+			sourceTree = "<group>";
+		};
+		30DDA8A628E231B000393AB3 /* BrazeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				30DDA8A728E231B000393AB3 /* BrazeUITests.swift */,
+				30DDA8A928E231B000393AB3 /* BrazeUITestsLaunchTests.swift */,
+			);
+			path = BrazeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30DDA88328E231A600393AB3 /* Braze */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30DDA8AD28E231B000393AB3 /* Build configuration list for PBXNativeTarget "Braze" */;
+			buildPhases = (
+				30DDA88028E231A600393AB3 /* Sources */,
+				30DDA88128E231A600393AB3 /* Frameworks */,
+				30DDA88228E231A600393AB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Braze;
+			productName = Braze;
+			productReference = 30DDA88428E231A600393AB3 /* Braze.app */;
+			productType = "com.apple.product-type.application";
+		};
+		30DDA89828E231B000393AB3 /* BrazeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30DDA8B028E231B000393AB3 /* Build configuration list for PBXNativeTarget "BrazeTests" */;
+			buildPhases = (
+				30DDA89528E231B000393AB3 /* Sources */,
+				30DDA89628E231B000393AB3 /* Frameworks */,
+				30DDA89728E231B000393AB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30DDA89B28E231B000393AB3 /* PBXTargetDependency */,
+			);
+			name = BrazeTests;
+			productName = BrazeTests;
+			productReference = 30DDA89928E231B000393AB3 /* BrazeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		30DDA8A228E231B000393AB3 /* BrazeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30DDA8B328E231B000393AB3 /* Build configuration list for PBXNativeTarget "BrazeUITests" */;
+			buildPhases = (
+				30DDA89F28E231B000393AB3 /* Sources */,
+				30DDA8A028E231B000393AB3 /* Frameworks */,
+				30DDA8A128E231B000393AB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30DDA8A528E231B000393AB3 /* PBXTargetDependency */,
+			);
+			name = BrazeUITests;
+			productName = BrazeUITests;
+			productReference = 30DDA8A328E231B000393AB3 /* BrazeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30DDA87C28E231A600393AB3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					30DDA88328E231A600393AB3 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					30DDA89828E231B000393AB3 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 30DDA88328E231A600393AB3;
+					};
+					30DDA8A228E231B000393AB3 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 30DDA88328E231A600393AB3;
+					};
+				};
+			};
+			buildConfigurationList = 30DDA87F28E231A600393AB3 /* Build configuration list for PBXProject "Braze" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30DDA87B28E231A600393AB3;
+			productRefGroup = 30DDA88528E231A600393AB3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30DDA88328E231A600393AB3 /* Braze */,
+				30DDA89828E231B000393AB3 /* BrazeTests */,
+				30DDA8A228E231B000393AB3 /* BrazeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30DDA88228E231A600393AB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */,
+				30DDA8B728E2323400393AB3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DDA89728E231B000393AB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DDA8B828E2323400393AB3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DDA8A128E231B000393AB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DDA8B928E2323400393AB3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30DDA88028E231A600393AB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */,
+				30DDA89128E231B000393AB3 /* Persistence.swift in Sources */,
+				30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */,
+				30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */,
+				30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DDA89528E231B000393AB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DDA89E28E231B000393AB3 /* BrazeTests.swift in Sources */,
+				30DDA8BC28E2326700393AB3 /* Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DDA89F28E231B000393AB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DDA8BD28E2326700393AB3 /* Extension.swift in Sources */,
+				30DDA8A828E231B000393AB3 /* BrazeUITests.swift in Sources */,
+				30DDA8AA28E231B000393AB3 /* BrazeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30DDA89B28E231B000393AB3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30DDA88328E231A600393AB3 /* Braze */;
+			targetProxy = 30DDA89A28E231B000393AB3 /* PBXContainerItemProxy */;
+		};
+		30DDA8A528E231B000393AB3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30DDA88328E231A600393AB3 /* Braze */;
+			targetProxy = 30DDA8A428E231B000393AB3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		30DDA8AB28E231B000393AB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30DDA8AC28E231B000393AB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30DDA8AE28E231B000393AB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Braze/Preview Content\"";
+				DEVELOPMENT_TEAM = L77873QU8Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royaiyetin.Braze;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30DDA8AF28E231B000393AB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Braze/Preview Content\"";
+				DEVELOPMENT_TEAM = L77873QU8Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royaiyetin.Braze;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		30DDA8B128E231B000393AB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L77873QU8Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royaiyetin.BrazeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Braze.app/Braze";
+			};
+			name = Debug;
+		};
+		30DDA8B228E231B000393AB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L77873QU8Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royaiyetin.BrazeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Braze.app/Braze";
+			};
+			name = Release;
+		};
+		30DDA8B428E231B000393AB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L77873QU8Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royaiyetin.BrazeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Braze;
+			};
+			name = Debug;
+		};
+		30DDA8B528E231B000393AB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L77873QU8Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royaiyetin.BrazeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Braze;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30DDA87F28E231A600393AB3 /* Build configuration list for PBXProject "Braze" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30DDA8AB28E231B000393AB3 /* Debug */,
+				30DDA8AC28E231B000393AB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30DDA8AD28E231B000393AB3 /* Build configuration list for PBXNativeTarget "Braze" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30DDA8AE28E231B000393AB3 /* Debug */,
+				30DDA8AF28E231B000393AB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30DDA8B028E231B000393AB3 /* Build configuration list for PBXNativeTarget "BrazeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30DDA8B128E231B000393AB3 /* Debug */,
+				30DDA8B228E231B000393AB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30DDA8B328E231B000393AB3 /* Build configuration list for PBXNativeTarget "BrazeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30DDA8B428E231B000393AB3 /* Debug */,
+				30DDA8B528E231B000393AB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				30DDA89328E231B000393AB3 /* Braze.xcdatamodel */,
+			);
+			currentVersion = 30DDA89328E231B000393AB3 /* Braze.xcdatamodel */;
+			path = Braze.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 30DDA87C28E231A600393AB3 /* Project object */;
+}
