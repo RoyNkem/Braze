@@ -16,11 +16,11 @@ struct Buttons: View {
         VStack {
             Button(action: clicked) {
                 Image(systemName: icon)
-                    .font(.system(size: 20, weight: .bold, design: .default))
+                    .font(.system(size: isSmallHeight() ? 15:20, weight: .bold, design: .default))
                     .padding()
                     .padding(.horizontal, icon == "menubar.dock.rectangle" ? -3:0) //the sf symbol for "bill" is much wider, so offset the padding
                     .background(.ultraThinMaterial)
-                    .cornerRadius(20)
+                    .cornerRadius(isSmallHeight() ? 15:20)
             }
             .shadow(color: .theme.background.opacity(0.2), radius: 2, x: 0, y: 1)
             
