@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBD82928E25B440051FC88 /* CircleButtonView.swift */; };
 		30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6828E86F870060A03E /* CoinModel.swift */; };
-		30BD3A6B28E879840060A03E /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6A28E879840060A03E /* CoinRowView.swift */; };
 		30BD3A6D28E87A480060A03E /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6C28E87A480060A03E /* PreviewProvider.swift */; };
 		30BD3A6F28E87A720060A03E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6E28E87A720060A03E /* Color.swift */; };
 		30BD3A7128E87E790060A03E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A7028E87E790060A03E /* RoundedCorner.swift */; };
 		30BD3A7328E8938F0060A03E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A7228E8938F0060A03E /* Double.swift */; };
+		30BD3A7528E89AB00060A03E /* CoinRowViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A7428E89AB00060A03E /* CoinRowViews.swift */; };
 		30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88728E231A600393AB3 /* BrazeApp.swift */; };
 		30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88928E231A600393AB3 /* ContentView.swift */; };
 		30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */; };
@@ -51,11 +51,11 @@
 /* Begin PBXFileReference section */
 		30BBD82928E25B440051FC88 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		30BD3A6828E86F870060A03E /* CoinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinModel.swift; path = ../../../Resources/Models/CoinModel.swift; sourceTree = "<group>"; };
-		30BD3A6A28E879840060A03E /* CoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowView.swift; sourceTree = "<group>"; };
 		30BD3A6C28E87A480060A03E /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		30BD3A6E28E87A720060A03E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		30BD3A7028E87E790060A03E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		30BD3A7228E8938F0060A03E /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		30BD3A7428E89AB00060A03E /* CoinRowViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowViews.swift; sourceTree = "<group>"; };
 		30DDA88428E231A600393AB3 /* Braze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DDA88728E231A600393AB3 /* BrazeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeApp.swift; sourceTree = "<group>"; };
 		30DDA88928E231A600393AB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 			children = (
 				30DDA88928E231A600393AB3 /* ContentView.swift */,
 				30DDA8BE28E24C1500393AB3 /* Buttons.swift */,
-				30BD3A6A28E879840060A03E /* CoinRowView.swift */,
+				30BD3A7428E89AB00060A03E /* CoinRowViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,12 +356,12 @@
 				30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */,
 				30DDA89128E231B000393AB3 /* Persistence.swift in Sources */,
 				30BD3A6F28E87A720060A03E /* Color.swift in Sources */,
+				30BD3A7528E89AB00060A03E /* CoinRowViews.swift in Sources */,
 				30BD3A7328E8938F0060A03E /* Double.swift in Sources */,
 				30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */,
 				30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */,
 				30DDA8BF28E24C1500393AB3 /* Buttons.swift in Sources */,
 				30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */,
-				30BD3A6B28E879840060A03E /* CoinRowView.swift in Sources */,
 				30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */,
 				30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */,
 				30BD3A6D28E87A480060A03E /* PreviewProvider.swift in Sources */,
