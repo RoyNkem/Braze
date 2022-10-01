@@ -98,10 +98,11 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-                .preferredColorScheme(.dark)
             
             ContentView()
                 .previewDevice("iPhone 13")
+                .preferredColorScheme(.dark)
+
         }
     }
 }

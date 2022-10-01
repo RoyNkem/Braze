@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBD82928E25B440051FC88 /* CircleButtonView.swift */; };
+		30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6828E86F870060A03E /* CoinModel.swift */; };
 		30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88728E231A600393AB3 /* BrazeApp.swift */; };
 		30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88928E231A600393AB3 /* ContentView.swift */; };
 		30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		30BBD82928E25B440051FC88 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
+		30BD3A6828E86F870060A03E /* CoinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinModel.swift; path = ../../../Resources/Models/CoinModel.swift; sourceTree = "<group>"; };
 		30DDA88428E231A600393AB3 /* Braze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DDA88728E231A600393AB3 /* BrazeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeApp.swift; sourceTree = "<group>"; };
 		30DDA88928E231A600393AB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		30BD3A6728E867530060A03E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				30BD3A6828E86F870060A03E /* CoinModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		30DDA87B28E231A600393AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 			children = (
 				30DDA88728E231A600393AB3 /* BrazeApp.swift */,
 				30BBD82628E25A730051FC88 /* Components */,
+				30BD3A6728E867530060A03E /* Models */,
 				30BBD82428E25A160051FC88 /* Home */,
 				30DDA88D28E231B000393AB3 /* Preview Content */,
 				30BBD82828E25AD60051FC88 /* Extensions */,
@@ -332,6 +343,7 @@
 				30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */,
 				30DDA8BF28E24C1500393AB3 /* Buttons.swift in Sources */,
 				30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */,
+				30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */,
 				30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
