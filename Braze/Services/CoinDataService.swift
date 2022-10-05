@@ -12,7 +12,7 @@ class CoinDataService {
     @Published var allCoins: [CoinModel] = []
     var coinSubscription: AnyCancellable?
     
-    init() {
+    init() { // when we initiliaze a coin data service, it initializes and calls func get    
         getCoins()
     }
     
@@ -32,7 +32,7 @@ class CoinDataService {
                 }
                 return output.data
             }
-            .receive(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main) //return ton the main thread
             .decode(type: [CoinModel].self, decoder: JSONDecoder())
             .sink{ (completion) in
                 switch completion {
@@ -41,9 +41,9 @@ class CoinDataService {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-            } receiveValue: { [weak self] (returnedCoins) in
-                self?.allCoins = returnedCoins
-                self?.coinSubscription?.cancel()
+            } receiveValue: { [weak self] (returnedCoins) in //self creates a strong reference to the class
+                self?.allCoins = returnedCoins //
+                self?.coinSubscription?.cancel() //because subscribers can be cancelled anytime, they should be stored
             }
     }
 }

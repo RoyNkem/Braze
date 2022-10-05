@@ -18,15 +18,12 @@ class HomeViewModel: ObservableObject {
     private let dataService = CoinDataService()
     
     init() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.allCoins.append(DeveloperPreview.default.coin)
-            self.portfolioCoins.append(DeveloperPreview.default.coin)
-        }
+       addSubscribers()
     }
     
     func addSubscribers() {
-        dataService.$allCoins
-            .sink { [weak self] (returnedCoin) in
+        dataService.$allCoins // data service instance calls the func `get coin` which makes the network request and append the output coin to `allCoins`
+            .sink { [weak self] (returnedCoin) in //the received values of all coins is stored in the publisher var for home VM to use in home view
                 self?.allCoins = returnedCoin
             }
             .store(in: &cancellables)
