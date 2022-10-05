@@ -20,4 +20,11 @@ extension View {
     func isSmallHeight() -> Bool {
         return UIScreen.main.bounds.height < 830
     }
+    
+    //MARK: - isSmallWidth
+    ///Checks the screen size of the phone running the app. Used together with other properties, modifiers and types to modify the screen content to adjust itself depending on the width.
+    func isSmallWidth() -> Bool {
+        return UIScreen.main.bounds.width <= 390
+    }
+    
 }

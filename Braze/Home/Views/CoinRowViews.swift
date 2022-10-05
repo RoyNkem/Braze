@@ -9,8 +9,9 @@ import SwiftUI
 
 struct CoinRowViews: View {
     
+    private let size: CGFloat = 32.0
     let coin: CoinModel
-    let showHoldingsColumn: Bool
+    @Binding var showHoldingsColumn: Bool
     
     var body: some View {
         HStack(spacing: 0) {
@@ -30,10 +31,10 @@ struct CoinRowViews: View {
 struct CoinROwViews_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CoinRowViews(coin: dev.coin, showHoldingsColumn: true)
+            CoinRowViews(coin: dev.coin, showHoldingsColumn: .constant(false))
                 .previewLayout(.sizeThatFits)
             
-            CoinRowViews(coin: dev.coin, showHoldingsColumn: true)
+            CoinRowViews(coin: dev.coin, showHoldingsColumn: .constant(false))
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.dark)
         }
@@ -43,16 +44,17 @@ struct CoinROwViews_Previews: PreviewProvider {
 
 extension CoinRowViews {
     
-    //left Column
+    //MARK: left Column
     private var leftColumn: some View {
         HStack(spacing: 0) {
             Text("\(coin.rank)")
                 .font(.caption)
                 .foregroundColor(Color.theme.secondary)
-                .frame(minWidth: 30)
+                .frame(minWidth: 20)
             
-            Circle()
-                .frame(width: 30, height: 30)
+            Rectangle()
+                .frame(width: size, height: size)
+                .cornerRadius(isSmallHeight() ? 8:12)
             
             Text(coin.symbol.uppercased())
                 .font(.headline)
@@ -61,7 +63,7 @@ extension CoinRowViews {
         }
     }
     
-    //centre Column
+    //MARK: centre Column
     private var centreColumn: some View {
         VStack(alignment: .trailing) {
             Text(coin.currentHoldingsValue.asCurrencyWithTwoDecimals())
@@ -70,9 +72,10 @@ extension CoinRowViews {
             Text((coin.currentHoldings ?? 0).asNumberString())
         }
         .foregroundColor(.accentColor)
+        .padding(.trailing, 10)
     }
     
-    //right Column
+    //MARK: right Column
     private var rightColumn: some View {
         VStack(alignment: .trailing) {
             Text(coin.currentPrice.asCurrencyWithSixDecimals())
@@ -86,4 +89,5 @@ extension CoinRowViews {
         }
         .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
     }
+    
 }

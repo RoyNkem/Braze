@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300015FC28E9460C0081ACFF /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300015FB28E9460C0081ACFF /* CoinDataService.swift */; };
+		3048518728E8A6320006A23B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048518628E8A6320006A23B /* HomeViewModel.swift */; };
+		3092805D28E924BC00639EA9 /* PortfolioRowViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */; };
 		30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBD82928E25B440051FC88 /* CircleButtonView.swift */; };
 		30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6828E86F870060A03E /* CoinModel.swift */; };
 		30BD3A6D28E87A480060A03E /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6C28E87A480060A03E /* PreviewProvider.swift */; };
@@ -15,7 +18,7 @@
 		30BD3A7328E8938F0060A03E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A7228E8938F0060A03E /* Double.swift */; };
 		30BD3A7528E89AB00060A03E /* CoinRowViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A7428E89AB00060A03E /* CoinRowViews.swift */; };
 		30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88728E231A600393AB3 /* BrazeApp.swift */; };
-		30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88928E231A600393AB3 /* ContentView.swift */; };
+		30DDA88A28E231A600393AB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88928E231A600393AB3 /* HomeView.swift */; };
 		30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */; };
 		30DDA89128E231B000393AB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA89028E231B000393AB3 /* Persistence.swift */; };
 		30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */; };
@@ -49,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		300015FB28E9460C0081ACFF /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
+		3048518628E8A6320006A23B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioRowViews.swift; sourceTree = "<group>"; };
 		30BBD82928E25B440051FC88 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		30BD3A6828E86F870060A03E /* CoinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinModel.swift; path = ../../../Resources/Models/CoinModel.swift; sourceTree = "<group>"; };
 		30BD3A6C28E87A480060A03E /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -58,7 +64,7 @@
 		30BD3A7428E89AB00060A03E /* CoinRowViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowViews.swift; sourceTree = "<group>"; };
 		30DDA88428E231A600393AB3 /* Braze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DDA88728E231A600393AB3 /* BrazeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeApp.swift; sourceTree = "<group>"; };
-		30DDA88928E231A600393AB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		30DDA88928E231A600393AB3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		30DDA89028E231B000393AB3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		30DDA89328E231B000393AB3 /* Braze.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Braze.xcdatamodel; sourceTree = "<group>"; };
@@ -97,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300015FA28E945E00081ACFF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				300015FB28E9460C0081ACFF /* CoinDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		30BBD82428E25A160051FC88 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +123,7 @@
 		30BBD82528E25A470051FC88 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				3048518628E8A6320006A23B /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -173,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				30DDA88728E231A600393AB3 /* BrazeApp.swift */,
+				300015FA28E945E00081ACFF /* Services */,
 				30BBD82628E25A730051FC88 /* Components */,
 				30BD3A6728E867530060A03E /* Models */,
 				30BBD82428E25A160051FC88 /* Home */,
@@ -213,9 +229,10 @@
 		30DDA8C228E257BB00393AB3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				30DDA88928E231A600393AB3 /* ContentView.swift */,
+				30DDA88928E231A600393AB3 /* HomeView.swift */,
 				30DDA8BE28E24C1500393AB3 /* Buttons.swift */,
 				30BD3A7428E89AB00060A03E /* CoinRowViews.swift */,
+				3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -354,14 +371,17 @@
 			files = (
 				30BD3A7128E87E790060A03E /* RoundedCorner.swift in Sources */,
 				30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */,
+				3092805D28E924BC00639EA9 /* PortfolioRowViews.swift in Sources */,
 				30DDA89128E231B000393AB3 /* Persistence.swift in Sources */,
+				300015FC28E9460C0081ACFF /* CoinDataService.swift in Sources */,
 				30BD3A6F28E87A720060A03E /* Color.swift in Sources */,
 				30BD3A7528E89AB00060A03E /* CoinRowViews.swift in Sources */,
 				30BD3A7328E8938F0060A03E /* Double.swift in Sources */,
 				30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */,
-				30DDA88A28E231A600393AB3 /* ContentView.swift in Sources */,
+				30DDA88A28E231A600393AB3 /* HomeView.swift in Sources */,
 				30DDA8BF28E24C1500393AB3 /* Buttons.swift in Sources */,
 				30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */,
+				3048518728E8A6320006A23B /* HomeViewModel.swift in Sources */,
 				30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */,
 				30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */,
 				30BD3A6D28E87A480060A03E /* PreviewProvider.swift in Sources */,

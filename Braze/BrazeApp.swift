@@ -10,12 +10,15 @@ import SwiftUI
 @main
 struct BrazeApp: App {
     
+    @StateObject private var vm = HomeViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                HomeView()
                     .navigationBarHidden(true)
             }
+            .environmentObject(vm)
         }
     }
 }
