@@ -145,28 +145,33 @@ extension HomeView {
     private var allCoinsList: some View {
         VStack {
             ForEach(vm.allCoins) { coin in
-                CoinRowViews(coin: DeveloperPreview.default.coin, showHoldingsColumn: $showHoldingsColumn)
+                CoinRowViews(coin: coin, showHoldingsColumn: $showHoldingsColumn)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.trailing, isSmallHeight() ? 6:8)
-        .listStyle(PlainListStyle())
+        
     }
     
     //MARK: portfolioCoinsList
     private var portfolioCoinsList: some View {
         VStack(alignment: .leading) {
             
-            Text("Portfolio")
-                .font(.system(size: isSmallHeight() ? 23:30, weight: .bold, design: .rounded))
-                .padding(.top, isSmallHeight() ? 16:20)
-                .padding(.horizontal)
+            HStack {
+                Text("Portfolio")
+                    .font(.system(size: isSmallHeight() ? 23:30, weight: .bold, design: .rounded))
+                    .padding(.top, isSmallHeight() ? 16:20)
+                    .padding(.horizontal)
+                
+                Spacer()
+            }
             
-            ForEach(vm.portfolioCoins) { coin in
-                PortfolioRowViews(coin: DeveloperPreview.default.coin)
+            ForEach(vm.allCoins) { coin in
+                PortfolioRowViews(coin: coin)
             }
         }
-        .listStyle(PlainListStyle())
+        .frame(maxWidth: .infinity)
+        
     }
     
     //MARK: columnTitles
