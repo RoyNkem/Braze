@@ -143,13 +143,14 @@ extension HomeView {
     
     //MARK: allCoinsList
     private var allCoinsList: some View {
-        VStack {
+        LazyVStack {
             ForEach(vm.allCoins) { coin in
                 CoinRowViews(coin: coin, showHoldingsColumn: $showHoldingsColumn)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.trailing, isSmallHeight() ? 6:8)
+        .padding(.vertical, isSmallHeight() ? 7:10)
         
     }
     
@@ -178,33 +179,33 @@ extension HomeView {
     private var columnTitles: some View {
         VStack {
             
-            HStack(spacing: 10) {
-                Spacer()
-                
-                Text("Show holdings")
-                    .font(.system(size: isSmallHeight() ? 13:15))
-                    .fontWeight(.medium)
-                    .onTapGesture {
-                        showHoldingsColumn.toggle()
-                    }
-                
-                Button(action: {
-                    showHoldingsColumn.toggle()
-                }) {
-                    ZStack {
-                        Circle()
-                            .stroke(LinearGradient(gradient: .init(colors: [.theme.blue,.theme.purple]), startPoint: .leading, endPoint: .trailing), lineWidth: 2.5)
-                            .frame(width: radius, height: radius)
-                        
-                        if self.showHoldingsColumn {
-                            Circle()
-                                .fill(Color.theme.purple)
-                                .frame(width: radius/2, height: radius/2)
-                        }
-                    }
-                }
-            }
-            .padding(.vertical)
+//            HStack(spacing: 10) {
+//                Spacer()
+//
+//                Text("Show holdings")
+//                    .font(.system(size: isSmallHeight() ? 13:15))
+//                    .fontWeight(.medium)
+//                    .onTapGesture {
+//                        showHoldingsColumn.toggle()
+//                    }
+//
+//                Button(action: {
+//                    showHoldingsColumn.toggle()
+//                }) {
+//                    ZStack {
+//                        Circle()
+//                            .stroke(LinearGradient(gradient: .init(colors: [.theme.blue,.theme.purple]), startPoint: .leading, endPoint: .trailing), lineWidth: 2.5)
+//                            .frame(width: radius, height: radius)
+//
+//                        if self.showHoldingsColumn {
+//                            Circle()
+//                                .fill(Color.theme.purple)
+//                                .frame(width: radius/2, height: radius/2)
+//                        }
+//                    }
+//                }
+//            }
+//            .padding(.vertical)
             
             HStack {
                 Text("Coin")
@@ -217,6 +218,7 @@ extension HomeView {
                     .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
             }
             .font(.system(size: isSmallHeight() ? 12:15))
+            .padding(.top, isSmallHeight() ? 5:10)
         }
         .padding(.horizontal, 8)
     }

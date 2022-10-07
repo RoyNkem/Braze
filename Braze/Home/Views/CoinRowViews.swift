@@ -53,6 +53,8 @@ extension CoinRowViews {
                 .frame(minWidth: 20)
             
             Rectangle()
+                .foregroundColor(.theme.secondary)
+                .overlay(CoinImageView(coin: coin))
                 .frame(width: size, height: size)
                 .cornerRadius(isSmallHeight() ? 8:12)
             

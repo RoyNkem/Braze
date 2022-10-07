@@ -8,8 +8,11 @@
 import Foundation
 import Combine
 
+typealias DownloadResult = AnyPublisher<Data, Error>
+
 class NetworkingManager {
     
+    //handling networking error in a custom way 
     enum NetworkingError: LocalizedError {
         case badURLResponse(url: URL)
         case unknowm
@@ -22,11 +25,12 @@ class NetworkingManager {
         }
     }
     
-    static func download(url: URL) -> AnyPublisher<Data, Error> {
+    static func download(url: URL) -> DownloadResult {
         return URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .default))
+            .retry(2)
             .tryMap {try handleURLResponse(output: $0, url: url)}
-            .receive(on: DispatchQueue.main) //return ton the main thread
+            .receive(on: DispatchQueue.main) //return to the main thread
             .eraseToAnyPublisher() //converts the publisher into an AnyPublisher type (which is our function return type
     }
     
