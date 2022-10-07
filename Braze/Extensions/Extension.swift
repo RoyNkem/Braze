@@ -28,3 +28,15 @@ extension View {
     }
     
 }
+
+
+extension UIApplication {
+    
+    func didBeginEditing() {
+        sendAction(#selector(getter: UIApplication.shared.isFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    func didEndEditing() {
+        sendAction(#selector(UIApplication.shared.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}

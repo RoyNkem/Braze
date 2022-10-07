@@ -21,4 +21,6 @@ struct ColorTheme {
     let secondary = Color("SecondaryTextColor")
     let purple = Color("PurpleColor")
     let blue = Color("BlueColor")
+    let increaseRate = Color("CoinIncreaseRateColor")
+    let decreaseRate = Color("CoinDecreaseRateColor")
 }

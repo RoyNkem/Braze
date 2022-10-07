@@ -11,6 +11,7 @@ struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
     @State private var showPortfolio: Bool = false
     @State var showHoldingsColumn: Bool = false
+    @State var showSearchBar: Bool = false
     
     private var radius: CGFloat = 25.0
     var width: CGFloat = 60
@@ -38,6 +39,10 @@ struct HomeView: View {
                 .background(LinearGradient(colors: [Color.theme.blue, Color.theme.purple], startPoint: .leading, endPoint: .trailing))
                 .cornerRadius(isSmallHeight() ? 20:40, corners: [.bottomLeft, .bottomRight])
                 
+                SearchBarView(searchText: $vm.searchText, showSearchBar: $showSearchBar)
+                    .padding(.top, isSmallHeight() ? 2:4)
+                    .padding(.horizontal, 7)
+                
                 if !showPortfolio {
                     columnTitles
                     
@@ -52,6 +57,7 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
         }
+        .background(Color.theme.background)
         .ignoresSafeArea(.container, edges: .top)
     }
     
@@ -62,6 +68,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HomeView()
+            //                .preferredColorScheme(.dark)
             
             HomeView()
                 .previewDevice("iPhone 13")
@@ -149,7 +156,7 @@ extension HomeView {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.trailing, isSmallHeight() ? 6:8)
+        .padding(.horizontal, isSmallHeight() ? 6:8)
         .padding(.vertical, isSmallHeight() ? 7:10)
         
     }
@@ -177,49 +184,22 @@ extension HomeView {
     
     //MARK: columnTitles
     private var columnTitles: some View {
-        VStack {
-            
-//            HStack(spacing: 10) {
-//                Spacer()
-//
-//                Text("Show holdings")
-//                    .font(.system(size: isSmallHeight() ? 13:15))
-//                    .fontWeight(.medium)
-//                    .onTapGesture {
-//                        showHoldingsColumn.toggle()
-//                    }
-//
-//                Button(action: {
-//                    showHoldingsColumn.toggle()
-//                }) {
-//                    ZStack {
-//                        Circle()
-//                            .stroke(LinearGradient(gradient: .init(colors: [.theme.blue,.theme.purple]), startPoint: .leading, endPoint: .trailing), lineWidth: 2.5)
-//                            .frame(width: radius, height: radius)
-//
-//                        if self.showHoldingsColumn {
-//                            Circle()
-//                                .fill(Color.theme.purple)
-//                                .frame(width: radius/2, height: radius/2)
-//                        }
-//                    }
-//                }
-//            }
-//            .padding(.vertical)
-            
-            HStack {
-                Text("Coin")
-                Spacer()
-                if showHoldingsColumn {
-                    Text("Holdings")
-                        .padding(.trailing, 5)
-                }
-                Text("Price")
-                    .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
-            }
-            .font(.system(size: isSmallHeight() ? 12:15))
-            .padding(.top, isSmallHeight() ? 5:10)
+        
+        HStack {
+            Text("Coin")
+                .offset(x: 10)
+                .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+            Spacer()
+            Text("Price")
+                .offset(x: 10)
+                .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+            Text("24h chg%")
+                .offset(x: -10)
+                .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
         }
+        .foregroundColor(.theme.secondary)
+        .font(.system(size: isSmallHeight() ? 11:13))
+        .padding(.top, isSmallHeight() ? 5:10)
         .padding(.horizontal, 8)
     }
     

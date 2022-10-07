@@ -17,10 +17,8 @@ struct CoinRowViews: View {
         HStack(spacing: 0) {
             leftColumn
             Spacer()
-            //show holdings column
-            if showHoldingsColumn {
-                centreColumn
-            }
+            centreColumn
+            Spacer()
             rightColumn
         }
         .font(.subheadline)
@@ -53,7 +51,7 @@ extension CoinRowViews {
                 .frame(minWidth: 20)
             
             Rectangle()
-                .foregroundColor(.theme.secondary)
+                .foregroundColor(.theme.background)
                 .overlay(CoinImageView(coin: coin))
                 .frame(width: size, height: size)
                 .cornerRadius(isSmallHeight() ? 8:12)
@@ -62,34 +60,41 @@ extension CoinRowViews {
                 .font(.headline)
                 .padding(.leading, 6)
                 .foregroundColor(.accentColor)
+                .lineLimit(1)
         }
+        .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+        
     }
     
     //MARK: centre Column
     private var centreColumn: some View {
-        VStack(alignment: .trailing) {
-            Text(coin.currentHoldingsValue.asCurrencyWithTwoDecimals())
-                .bold()
-            
-            Text((coin.currentHoldings ?? 0).asNumberString())
-        }
-        .foregroundColor(.accentColor)
-        .padding(.trailing, 10)
+        
+        Text(coin.currentPrice.asCurrencyWithSixDecimals())
+            .bold()
+            .foregroundColor(
+                (coin.priceChangePercentage24H ?? 0) >= 0 ?
+                Color.theme.increaseRate : Color.theme.decreaseRate
+            )
+            .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+        
     }
     
     //MARK: right Column
     private var rightColumn: some View {
-        VStack(alignment: .trailing) {
-            Text(coin.currentPrice.asCurrencyWithSixDecimals())
-                .bold()
-                .foregroundColor(.accentColor)
-            
-            Text(coin.priceChangePercentage24H?.asPercentageString() ?? "0")
-                .foregroundColor(
-                    (coin.priceChangePercentage24H ?? 0) >= 0 ?
-                    Color.theme.green : Color.theme.red)
-        }
-        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+        
+        Rectangle()
+            .frame(width: 80, height: 40)
+            .foregroundColor(
+                (coin.priceChangePercentage24H ?? 0) >= 0 ?
+                Color.theme.increaseRate : Color.theme.decreaseRate
+            )
+            .cornerRadius(5, corners: .allCorners)
+            .overlay {
+                Text(coin.priceChangePercentage24H?.asPercentageString() ?? "0")
+                    .padding(.all, 10)
+                    .foregroundColor(.white)
+            }
+            .padding(.trailing, isSmallWidth() ? 7:10)
     }
     
 }

@@ -62,7 +62,6 @@ class LocalFileManager {
             return nil
         }
         let fileURL = url.appendingPathComponent(folderName) // return a url with the specified name appended
-        print("\(fileURL)")
         return fileURL
     }
     
