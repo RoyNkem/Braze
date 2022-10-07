@@ -36,9 +36,11 @@ This repository is still in development and I will continue to add more features
 ## ScreenShots
 
 <p>
-<img src="https://user-images.githubusercontent.com/95645767/194495367-f8b2df87-9838-4d88-8948-709a165671c3.png" alt="Home View Dark" width = "240" >
-<img src="https://user-images.githubusercontent.com/95645767/194495474-9053824d-fb1b-4b0f-a497-b1f04c182208.png" alt="Home View Light" width = "241" >
-
+<img src="https://user-images.githubusercontent.com/95645767/194495367-f8b2df87-9838-4d88-8948-709a165671c3.png" alt="Home View Dark" width = "240" />
+<img src="https://user-images.githubusercontent.com/95645767/194495474-9053824d-fb1b-4b0f-a497-b1f04c182208.png" alt="Home View Light" width = "241"/>
+  
+</p>
+  
 ## API Reference
 
 #### Get all coins
@@ -76,11 +78,5 @@ This repository is still in development and I will continue to add more features
  Swift - 100%
 
 
-
-
-## Features
-
-
-
-    <p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
