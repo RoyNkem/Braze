@@ -33,6 +33,9 @@
 		30DDA8BC28E2326700393AB3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BA28E2326700393AB3 /* Extension.swift */; };
 		30DDA8BD28E2326700393AB3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BA28E2326700393AB3 /* Extension.swift */; };
 		30DDA8BF28E24C1500393AB3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8BE28E24C1500393AB3 /* Buttons.swift */; };
+		30FC3F9628EF7A48001FD042 /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC3F9528EF7A48001FD042 /* CoinImageView.swift */; };
+		30FC3F9828EF7BBF001FD042 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC3F9728EF7BBF001FD042 /* CoinImageService.swift */; };
+		30FC3F9A28EF7D76001FD042 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC3F9928EF7D76001FD042 /* CoinImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		30DDA8B628E2323400393AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Resources/Assets.xcassets; sourceTree = "<group>"; };
 		30DDA8BA28E2326700393AB3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		30DDA8BE28E24C1500393AB3 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		30FC3F9528EF7A48001FD042 /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
+		30FC3F9728EF7BBF001FD042 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
+		30FC3F9928EF7D76001FD042 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				300015FB28E9460C0081ACFF /* CoinDataService.swift */,
+				30FC3F9728EF7BBF001FD042 /* CoinImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -141,7 +148,7 @@
 		30BBD82628E25A730051FC88 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				30BD3A7028E87E790060A03E /* RoundedCorner.swift */,
+				30FC3F9428EF7A2E001FD042 /* CoinImage */,
 				30BBD82728E25A810051FC88 /* CircleButton */,
 			);
 			path = Components;
@@ -242,10 +249,20 @@
 			children = (
 				30DDA88928E231A600393AB3 /* HomeView.swift */,
 				30DDA8BE28E24C1500393AB3 /* Buttons.swift */,
+				30BD3A7028E87E790060A03E /* RoundedCorner.swift */,
 				30BD3A7428E89AB00060A03E /* CoinRowViews.swift */,
 				3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		30FC3F9428EF7A2E001FD042 /* CoinImage */ = {
+			isa = PBXGroup;
+			children = (
+				30FC3F9528EF7A48001FD042 /* CoinImageView.swift */,
+				30FC3F9928EF7D76001FD042 /* CoinImageViewModel.swift */,
+			);
+			path = CoinImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,14 +402,17 @@
 				30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */,
 				3092805D28E924BC00639EA9 /* PortfolioRowViews.swift in Sources */,
 				30DDA89128E231B000393AB3 /* Persistence.swift in Sources */,
+				30FC3F9628EF7A48001FD042 /* CoinImageView.swift in Sources */,
 				300015FC28E9460C0081ACFF /* CoinDataService.swift in Sources */,
 				30BD3A6F28E87A720060A03E /* Color.swift in Sources */,
 				30BD3A7528E89AB00060A03E /* CoinRowViews.swift in Sources */,
 				30BD3A7328E8938F0060A03E /* Double.swift in Sources */,
 				30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */,
 				30DDA88A28E231A600393AB3 /* HomeView.swift in Sources */,
+				30FC3F9828EF7BBF001FD042 /* CoinImageService.swift in Sources */,
 				30DDA8BF28E24C1500393AB3 /* Buttons.swift in Sources */,
 				30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */,
+				30FC3F9A28EF7D76001FD042 /* CoinImageViewModel.swift in Sources */,
 				3048518728E8A6320006A23B /* HomeViewModel.swift in Sources */,
 				30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */,
 				30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */,
