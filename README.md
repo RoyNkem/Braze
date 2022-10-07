@@ -35,21 +35,9 @@ This repository is still in development and I will continue to add more features
 
 ## ScreenShots
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/83976439/143469569-5327c200-d030-4e9b-8c89-06ae531c83a3.png" width="300" height="700">
-</p>
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/83976439/143469713-1e57f37c-a6c8-4efa-b1c1-a6942ff36e26.png" width="300" height="700">
-</p>
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/83976439/143469809-19929f81-7add-42fa-a144-f389052f9e71.png" width="300" height="700">
-</p>
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/83976439/143469920-e033247e-5158-4f5a-82f1-d138a99df4f7.png" width="300" height="700">
-</p>
+<p>
+<img src="https://user-images.githubusercontent.com/95645767/194495367-f8b2df87-9838-4d88-8948-709a165671c3.png" alt="Home View Dark" width = "240" >
+<img src="https://user-images.githubusercontent.com/95645767/194495474-9053824d-fb1b-4b0f-a497-b1f04c182208.png" alt="Home View Light" width = "241" >
 
 ## API Reference
 
