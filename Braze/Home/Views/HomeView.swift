@@ -132,18 +132,18 @@ extension HomeView {
     private var priceRow: some View {
         HStack(alignment: .bottom, spacing: 0) {
             Text("$7,684.")
-                .font(.system(size: isSmallHeight() ? 30:40, weight: .bold, design: .default))
+                .custom(font: .bold, size: isSmallHeight() ? 30:40)
             
             Text("00")
-                .font(.system(size: isSmallHeight() ? 20:25, weight: .medium, design: .default))
-                .offset(y: -3)
+                .custom(font: .medium, size: isSmallHeight() ? 20:25)
+                .offset(y: -5)
             
             Text("+4.34%").foregroundColor(.black)
                 .padding(5)
                 .background(Color.green.opacity(0.7))
                 .cornerRadius(10)
                 .padding(.leading)
-                .offset(y: -4)
+                .offset(y: -10)
         }
         .padding(.bottom,isSmallHeight() ? 10:20)
     }
@@ -187,20 +187,21 @@ extension HomeView {
         
         HStack {
             Text("Coin")
-                .offset(x: 10)
+                .offset(x: 25)
                 .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
             Spacer()
-            Text("Price")
+            Text("Last Price")
                 .offset(x: 10)
                 .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
             Text("24h chg%")
-                .offset(x: -10)
+                .offset(x: -15)
                 .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
         }
+        .custom(font: .regular, size: isSmallWidth() ? 12:14)
         .foregroundColor(.theme.secondary)
-        .font(.system(size: isSmallHeight() ? 11:13))
-        .padding(.top, isSmallHeight() ? 5:10)
+        .padding(.top, isSmallHeight() ? 3:6)
         .padding(.horizontal, 8)
+        .padding(.bottom, isSmallHeight() ? -9:-12)
     }
     
 }

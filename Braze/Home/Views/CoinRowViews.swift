@@ -56,11 +56,17 @@ extension CoinRowViews {
                 .frame(width: size, height: size)
                 .cornerRadius(isSmallHeight() ? 8:12)
             
-            Text(coin.symbol.uppercased())
-                .font(.headline)
-                .padding(.leading, 6)
-                .foregroundColor(.accentColor)
-                .lineLimit(1)
+            VStack(alignment: .leading, spacing: -2) {
+                Text(coin.symbol.uppercased())
+                    .font(.headline)
+                    .foregroundColor(.accentColor)
+                    .lineLimit(1)
+                
+                Text(coin.name)
+                    .custom(font: .regular, size: isSmallHeight() ? 9:13)
+                    .foregroundColor(.theme.secondary)
+            }
+            .padding(.leading, 6)
         }
         .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
         

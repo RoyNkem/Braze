@@ -10,7 +10,7 @@ import Combine
 
 //observe model from content view
 class HomeViewModel: ObservableObject {
-   
+    
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []
     
@@ -20,17 +20,35 @@ class HomeViewModel: ObservableObject {
     private let dataService = CoinDataService()
     
     init() {
-       addSubscribers()
+        addSubscribers()
     }
     
     func addSubscribers() {
-        dataService.$allCoins // data service instance calls the func `get coin` which makes the network request and append the output coin to `allCoins`
-            .sink { [weak self] (returnedCoin) in //the received values of all coins is stored in the publisher var for home VM to use in home view
-                self?.allCoins = returnedCoin
+        
+        // data service instance calls the func `get coin` which makes the network request and append the output coin to `allCoins`
+        //the received values of coins is stored in the publisher var `allCoins` for home VM to use in home view
+        $searchText
+            .combineLatest(dataService.$allCoins)
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main) //publishes the 2 publishers after 0.5 seconds to allow users type tangible texts
+            .map(filterCoins)
+            .sink { [weak self] (returnedCoins) in
+                self?.allCoins = returnedCoins
             }
             .store(in: &cancellables)
-        
-        
     }
     
+    private func filterCoins(text: String, startingCoins: [CoinModel]) -> [CoinModel] {
+        guard !text.isEmpty else {
+            return startingCoins
+        }
+        let lowercasedText = text.lowercased()
+        
+        let filteredCoins = startingCoins.filter { (coin) -> Bool in
+            return coin.name.lowercased().contains(lowercasedText) ||
+            coin.symbol.lowercased().contains(lowercasedText) ||
+            coin.id.lowercased().contains(lowercasedText)
+        }
+        
+        return filteredCoins
+    }
 }

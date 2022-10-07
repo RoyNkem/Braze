@@ -32,7 +32,7 @@ struct SearchBarView: View {
         } else {
             HStack {
                 Text("Live Prices")
-                    .font(.system(size: 20, design: .rounded)).bold()
+                    .custom(font: .bold, size: isSmallWidth() ? 18:24)
                 
                 Spacer()
                 ZStack {
@@ -76,6 +76,7 @@ extension SearchBarView {
     //MARK: TextField
     private var textfield: some View {
         TextField("Search by name or symbol...", text: $searchText)
+            .custom(font: .regular, size: isSmallWidth() ? 14:18)
             .disableAutocorrection(true)
             .foregroundColor(.theme.accentColor)
             .overlay(alignment: .trailing, content: {
