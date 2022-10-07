@@ -156,7 +156,7 @@ extension HomeView {
     
     //MARK: portfolioCoinsList
     private var portfolioCoinsList: some View {
-        VStack(alignment: .leading) {
+        LazyVStack(alignment: .leading) {
             
             HStack {
                 Text("Portfolio")
