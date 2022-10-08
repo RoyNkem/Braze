@@ -19,7 +19,7 @@ struct PortfolioRowViews: View {
                 
             Rectangle()
                 .frame(width: size, height: size)
-                .foregroundColor(.theme.background)
+                .foregroundColor(.theme.homeBackground)
                 .overlay(CoinImageView(coin: coin))
                 .cornerRadius(isSmallHeight() ? 8:12)
             

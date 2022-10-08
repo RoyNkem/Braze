@@ -36,6 +36,7 @@ struct SearchBarView: View {
                     Text("Live Prices")
                         .custom(font: .bold, size: isSmallWidth() ? 18:24)
                 }
+                
                 Spacer()
                 ZStack {
                     Circle()
@@ -44,6 +45,7 @@ struct SearchBarView: View {
                     
                     magnifyingGlassImage
                 }
+                .padding(.horizontal)
                 .onTapGesture {
                     withAnimation {
                         self.showSearchBar = true
