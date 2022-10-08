@@ -13,6 +13,8 @@ struct HomeView: View {
     @State var showHoldingsColumn: Bool = false
     @State var showSearchBar: Bool = false
     
+    private let rows: [GridItem]  = Array(repeating: GridItem(.adaptive(minimum: 200), spacing: 15), count: 1)
+    
     private var radius: CGFloat = 25.0
     var width: CGFloat = 60
     var height: CGFloat = 60
@@ -22,39 +24,21 @@ struct HomeView: View {
         ScrollView {
             
             VStack {
-                VStack(alignment: .leading) {
-                    
-                    profileRow
-                    Text("Wallet(USD)")
-                        .foregroundColor(.white.opacity(0.7))
-                    priceRow
-                    buttonRow
-                    Spacer()
-                    
-                }
-                .padding(.top, isSmallHeight() ? 20 : 50)
-                .padding()
-                .foregroundColor(.white)
-                .font(.system(size: isSmallHeight() ? 12 : 15))
-                .background(LinearGradient(colors: [Color.theme.blue, Color.theme.purple], startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(isSmallHeight() ? 20:40, corners: [.bottomLeft, .bottomRight])
+                topSection
                 
-                SearchBarView(searchText: $vm.searchText, showSearchBar: $showSearchBar, showPortfolio: $showPortfolio)
-                    .padding(.top, isSmallHeight() ? 2:4)
-                    .padding(.horizontal, 7)
+                searchbar
+                
+                statisticsCard
                 
                 if !showPortfolio {
                     columnTitles
                     
                     allCoinsList
                         .transition(.move(edge: .trailing))
-                }
-                if showPortfolio {
+                } else {
                     portfolioCoinsList
                         .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading).combined(with: .opacity)))
                 }
-                
-                Spacer(minLength: 0)
             }
         }
         .background(Color.theme.homeBackground.opacity(0.3))
@@ -68,7 +52,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HomeView()
-                .preferredColorScheme(.dark)
+            //                .preferredColorScheme(.dark)
             
             HomeView()
                 .previewDevice("iPhone 13")
@@ -80,6 +64,26 @@ struct HomeView_Previews: PreviewProvider {
 
 extension HomeView {
     
+    //MARK: topSection
+    private var topSection: some View {
+        VStack(alignment: .leading) {
+            
+            profileRow
+            Text("Wallet(USD)")
+                .foregroundColor(.white.opacity(0.7))
+            priceRow
+            buttonRow
+            Spacer()
+            
+        }
+        .padding(.top, isSmallHeight() ? 20 : 50)
+        .padding()
+        .foregroundColor(.white)
+        .font(.system(size: isSmallHeight() ? 12 : 15))
+        .background(LinearGradient(colors: [Color.theme.blue, Color.theme.purple], startPoint: .leading, endPoint: .trailing))
+        .cornerRadius(isSmallHeight() ? 20:40, corners: [.bottomLeft, .bottomRight])
+    }
+    
     //MARK: profileRow
     private var profileRow: some View {
         HStack(spacing: 15) {
@@ -87,7 +91,11 @@ extension HomeView {
                 .resizable()
                 .scaledToFill()
                 .frame(width: isSmallHeight() ? width*0.75 : width, height: isSmallHeight() ? height*0.75 : height)
-                .cornerRadius(isSmallHeight() ? 15:20)
+                .clipShape(RoundedRectangle(cornerSize: .init(width: radius/2, height: radius/2)))
+                .overlay(content: {
+                    RoundedRectangle(cornerRadius: radius/2)
+                        .stroke(Color.white, lineWidth: 1)
+                })
             
             Text("Hello, Roy").bold()
                 .font(.system(size: isSmallHeight() ? 15:18))
@@ -104,7 +112,6 @@ extension HomeView {
             }
         }
         .padding(.bottom, isSmallHeight() ? 10:16)
-        
     }
     
     //MARK: buttonRow
@@ -126,6 +133,7 @@ extension HomeView {
                 print("Clicked")
             }
         }
+        .padding(.horizontal, isSmallHeight() ? 9:12)
     }
     
     //MARK: priceRow
@@ -148,6 +156,25 @@ extension HomeView {
         .padding(.bottom,isSmallHeight() ? 10:20)
     }
     
+    //MARK: searchbar
+    private var searchbar: some View {
+        SearchBarView(searchText: $vm.searchText, showSearchBar: $showSearchBar, showPortfolio: $showPortfolio)
+            .padding(.top, isSmallHeight() ? 2:4)
+            .padding(.horizontal, 7)
+    }
+    
+    //MARK: statisticsCard
+    private var statisticsCard: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: rows, spacing: 15) {
+                ForEach(vm.statistics) { stat in
+                    MarketStatisticsCard(stat: stat, coin: CoinModel.instance, colors: stat.colors)
+                }
+            }
+        }
+        .padding(.horizontal)
+    }
+    
     //MARK: allCoinsList
     private var allCoinsList: some View {
         LazyVStack {
@@ -158,7 +185,6 @@ extension HomeView {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, isSmallHeight() ? 6:8)
         .padding(.vertical, isSmallHeight() ? 7:10)
-        
     }
     
     //MARK: portfolioCoinsList
@@ -178,7 +204,6 @@ extension HomeView {
             }
         }
         .padding(.horizontal, isSmallHeight() ? 6:8)
-        
     }
     
     //MARK: columnTitles

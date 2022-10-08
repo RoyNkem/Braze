@@ -58,7 +58,6 @@ struct PortfolioRowViews: View {
         .background(Color.theme.portfolio)
         .cornerRadius(isSmallHeight() ? 13:15)
         .shadow(color: .theme.accentColor.opacity(0.15), radius: 10)
-        .padding(.bottom, isSmallHeight() ? 9:12)
     }
     
 }

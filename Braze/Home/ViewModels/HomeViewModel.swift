@@ -7,9 +7,16 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 //observe model from content view
 class HomeViewModel: ObservableObject {
+    
+    @Published var statistics: [StatisticsModel] = [StatisticsModel(title: "Market Cap", value: "$12.5Bn",  colors: [.theme.blue, .theme.purple]),
+                                                    StatisticsModel(title: "Total Volume", value: "$20.2Tr", percentageChange: 20.03, colors: [.theme.purple.opacity(0.5), .theme.red]),
+                                                    StatisticsModel(title: "Portfolio Value", value: "$50.4k", percentageChange: -5.17, coin: CoinModel.instance, colors: [.theme.blue, .theme.red])
+                                                    ]
+    @Published var showDetail: Bool = false
     
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []

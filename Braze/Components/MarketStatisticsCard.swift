@@ -9,9 +9,10 @@ import SwiftUI
 
 struct MarketStatisticsCard: View {
     
+    let stat: StatisticsModel
     let coin: CoinModel
-    let imageSize: CGFloat = 40.0
-    let colors: [Color] = [.theme.red, Color.orange]
+    let imageSize: CGFloat = 30.0
+    let colors: [Color]
     
     var body: some View {
         
@@ -22,14 +23,16 @@ struct MarketStatisticsCard: View {
             marketCapSection
             
         }
+//        .shadow(radius: CGFloat)
     }
     
 }
 
 struct MarketStatisticsCard_Previews: PreviewProvider {
     static var previews: some View {
-        MarketStatisticsCard(coin: dev.coin)
+        MarketStatisticsCard(stat: dev.stat1, coin: dev.coin, colors: [.theme.red, Color.orange])
             .previewLayout(.sizeThatFits)
+            .padding(20)
     }
 }
 
@@ -38,28 +41,33 @@ extension MarketStatisticsCard {
     //MARK: topPerformingSection
     ///Add a small summary graph for the highest performer i.e the first element in the allCoins array
     private var topPerformingCoinSection: some View {
-        VStack(alignment: .leading) {
-            HStack {
+        VStack(alignment: .leading, spacing: 0) {
+            
+            Text("Top Performer")
+                .custom(font: .regular, size: isSmallHeight() ? 11:14)
+            
+            VStack(alignment: .leading) {
                 Text(coin.name)
                 
-                Spacer()
-                
                 Text(coin.symbol.uppercased())
-                    .custom(font: .regular, size: isSmallHeight() ? 12:16)
+                    .custom(font: .regular, size: isSmallHeight() ? 10:12)
             }
             
             HStack {
                 CoinImageView(coin: coin)
                     .frame(width:imageSize, height: imageSize)
                 
-                Spacer()
+                Spacer(minLength: 25)
                 
                 VStack(alignment: .trailing) {
-                    Text((coin.priceChangePercentage24H ?? 0) >= 0 ? "Profit" : "Loss")
-                        .custom(font: .regular, size: isSmallHeight() ? 12:16)
+                    Text((stat.percentageChange ?? 0) >= 0 ? "Profit" : "Loss")
+                        .custom(font: .regular, size: isSmallHeight() ? 11:14)
                     
-                    HStack {
+                    HStack(spacing:0) {
                         Image(systemName: "triangle.fill").font(.caption)
+                            .rotationEffect( //rotate the arrow depending on profit or loss
+                                Angle(degrees:(stat.percentageChange ?? 0) >= 0 ? 0:180))
+                        
                         Text(coin.priceChangePercentage24H?.asPercentageString() ?? "0.0%")
                     }
                     
@@ -67,9 +75,10 @@ extension MarketStatisticsCard {
                 }
             }
         }
-        .custom(font: .bold, size: isSmallHeight() ? 12:16)
+        .custom(font: .bold, size: isSmallHeight() ? 11:14)
         .foregroundColor(.white)
-        .padding()
+        .padding(.vertical, 10)
+        .padding(.horizontal)
         .background(LinearGradient(colors: colors, startPoint: .topLeading, endPoint: .bottomTrailing))
         .cornerRadius(20, corners: [.topLeft, .topRight])
     }
@@ -79,17 +88,18 @@ extension MarketStatisticsCard {
     private var marketCapSection: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Market Cap")
-                    .custom(font: .regular, size: 15)
+                Text(stat.title)
+                    .custom(font: .regular, size: 12)
                 
-                Text("$199.00")
-                    .custom(font: .bold, size: 25)
+                Text(stat.value)
+                    .custom(font: .bold, size: 15)
             }
             
             Spacer()
         }
         .foregroundColor(Color.black)
-        .padding()
+        .padding(.vertical, 10)
+        .padding(.horizontal)
         .background(Color.white)
         .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
     }
