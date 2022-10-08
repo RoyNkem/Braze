@@ -11,7 +11,7 @@ struct SearchBarView: View {
     @Binding var searchText: String
     @Binding var showSearchBar: Bool
     @Binding var showPortfolio: Bool
-    
+        
     var radius: CGFloat = 30.0
     
     var body: some View {
@@ -26,7 +26,7 @@ struct SearchBarView: View {
             .background(
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.theme.background)
-                    .shadow(color: .theme.accentColor.opacity(0.15), radius: 5)
+                    .shadow(color: .theme.accentColor.opacity(0.15), radius: 5, x: 1, y: 2)
             )
             .padding(.horizontal)
             .transition(.move(edge: .trailing))
@@ -65,6 +65,7 @@ struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
         SearchBarView(searchText: .constant(""), showSearchBar: .constant(true), showPortfolio: .constant(false))
             .previewLayout(.sizeThatFits)
+            .padding(50)
     }
 }
 
@@ -97,5 +98,5 @@ extension SearchBarView {
                     }
             })
     }
-    
+
 }

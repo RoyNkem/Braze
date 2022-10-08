@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class CoinImageService {
+final class CoinImageService {
     
     @Published var image: UIImage? = nil
     

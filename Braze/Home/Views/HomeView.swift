@@ -14,7 +14,6 @@ struct HomeView: View {
     @State var showSearchBar: Bool = false
     
     private let rows: [GridItem]  = Array(repeating: GridItem(.adaptive(minimum: 200), spacing: 15), count: 1)
-    
     private var radius: CGFloat = 25.0
     var width: CGFloat = 60
     var height: CGFloat = 60
@@ -28,7 +27,9 @@ struct HomeView: View {
                 
                 searchbar
                 
-                statisticsCard
+                if !showPortfolio {
+                    statisticsCard
+                }
                 
                 if !showPortfolio {
                     columnTitles
@@ -52,7 +53,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HomeView()
-            //                .preferredColorScheme(.dark)
+                .preferredColorScheme(.dark)
             
             HomeView()
                 .previewDevice("iPhone 13")
@@ -172,7 +173,7 @@ extension HomeView {
                 }
             }
         }
-        .padding(.horizontal)
+        .padding(.leading)
     }
     
     //MARK: allCoinsList

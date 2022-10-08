@@ -10,7 +10,7 @@ import Combine
 
 typealias DownloadResult = AnyPublisher<Data, Error>
 
-class NetworkingManager {
+final class NetworkingManager {
     
     //handling networking error in a custom way 
     enum NetworkingError: LocalizedError {
@@ -25,13 +25,16 @@ class NetworkingManager {
         }
     }
     
+    /// A custom function that downloads
+    /// - Parameter url: The URL path to the requested API
+    /// - Returns: A Publisher type that returns a Data & Error
     static func download(url: URL) -> DownloadResult {
         return URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .default))
             .retry(2)
             .tryMap {try handleURLResponse(output: $0, url: url)}
             .receive(on: DispatchQueue.main) //return to the main thread
-            .eraseToAnyPublisher() //converts the publisher into an AnyPublisher type (which is our function return type
+            .eraseToAnyPublisher() //converts the publisher into an AnyPublisher type (which is our function return type)
     }
     
     static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Data {

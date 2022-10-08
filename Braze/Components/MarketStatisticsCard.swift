@@ -23,7 +23,7 @@ struct MarketStatisticsCard: View {
             marketCapSection
             
         }
-//        .shadow(radius: CGFloat)
+        .shadow(color: .black.opacity(0.1), radius: 2, x: 1, y: 2)
     }
     
 }
