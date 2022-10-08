@@ -63,7 +63,7 @@ extension CoinRowViews {
                     .lineLimit(1)
                 
                 Text(coin.name)
-                    .custom(font: .regular, size: isSmallHeight() ? 9:13)
+                    .custom(font: .regular, size: isSmallHeight() ? 10:13)
                     .foregroundColor(.theme.secondary)
             }
             .padding(.leading, 6)

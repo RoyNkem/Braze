@@ -39,7 +39,7 @@ struct HomeView: View {
                 .background(LinearGradient(colors: [Color.theme.blue, Color.theme.purple], startPoint: .leading, endPoint: .trailing))
                 .cornerRadius(isSmallHeight() ? 20:40, corners: [.bottomLeft, .bottomRight])
                 
-                SearchBarView(searchText: $vm.searchText, showSearchBar: $showSearchBar)
+                SearchBarView(searchText: $vm.searchText, showSearchBar: $showSearchBar, showPortfolio: $showPortfolio)
                     .padding(.top, isSmallHeight() ? 2:4)
                     .padding(.horizontal, 7)
                 
@@ -47,17 +47,17 @@ struct HomeView: View {
                     columnTitles
                     
                     allCoinsList
-                        .transition(.move(edge: .leading))
+                        .transition(.move(edge: .trailing))
                 }
                 if showPortfolio {
                     portfolioCoinsList
-                        .transition(.move(edge: .trailing))
+                        .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading).combined(with: .opacity)))
                 }
                 
                 Spacer(minLength: 0)
             }
         }
-        .background(Color.theme.background)
+        .background(Color.theme.homeBackground.opacity(0.3))
         .ignoresSafeArea(.container, edges: .top)
     }
     
@@ -68,7 +68,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HomeView()
-            //                .preferredColorScheme(.dark)
+                .preferredColorScheme(.dark)
             
             HomeView()
                 .previewDevice("iPhone 13")
@@ -167,9 +167,8 @@ extension HomeView {
             
             HStack {
                 Text("Portfolio")
+                    .custom(font: .bold, size: 30)
                     .font(.system(size: isSmallHeight() ? 23:30, weight: .bold, design: .rounded))
-                    .padding(.top, isSmallHeight() ? 16:20)
-                    .padding(.horizontal)
                 
                 Spacer()
             }
@@ -178,7 +177,7 @@ extension HomeView {
                 PortfolioRowViews(coin: coin)
             }
         }
-        .frame(maxWidth: .infinity)
+        .padding(.horizontal, isSmallHeight() ? 6:8)
         
     }
     

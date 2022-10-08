@@ -16,6 +16,7 @@ extension Color {
 struct ColorTheme {
     let accentColor = Color("AccentColor")
     let background = Color("BackgroundColor")
+    let homeBackground = Color("HomeBackgroundColor")
     let green = Color("GreenColor")
     let red = Color("RedColor")
     let secondary = Color("SecondaryTextColor")
@@ -23,4 +24,5 @@ struct ColorTheme {
     let blue = Color("BlueColor")
     let increaseRate = Color("CoinIncreaseRateColor")
     let decreaseRate = Color("CoinDecreaseRateColor")
+    let portfolio = Color("PortfolioColor")
 }

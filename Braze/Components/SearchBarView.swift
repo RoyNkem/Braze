@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchBarView: View {
     @Binding var searchText: String
     @Binding var showSearchBar: Bool
+    @Binding var showPortfolio: Bool
     
     var radius: CGFloat = 30.0
     
@@ -25,15 +26,16 @@ struct SearchBarView: View {
             .background(
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.theme.background)
-                    .shadow(color: .theme.accentColor.opacity(0.15), radius: 10)
+                    .shadow(color: .theme.accentColor.opacity(0.15), radius: 5)
             )
             .padding(.horizontal)
             .transition(.move(edge: .trailing))
         } else {
             HStack {
-                Text("Live Prices")
-                    .custom(font: .bold, size: isSmallWidth() ? 18:24)
-                
+                if showPortfolio == false {
+                    Text("Live Prices")
+                        .custom(font: .bold, size: isSmallWidth() ? 18:24)
+                }
                 Spacer()
                 ZStack {
                     Circle()
@@ -59,7 +61,7 @@ struct SearchBarView: View {
 
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBarView(searchText: .constant(""), showSearchBar: .constant(true))
+        SearchBarView(searchText: .constant(""), showSearchBar: .constant(true), showPortfolio: .constant(false))
             .previewLayout(.sizeThatFits)
     }
 }
@@ -89,7 +91,7 @@ extension SearchBarView {
                             self.showSearchBar = false
                         }
                         UIApplication.shared.didEndEditing()
-                        searchText = " "
+                        searchText.removeAll()
                     }
             })
     }

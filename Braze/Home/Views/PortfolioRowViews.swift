@@ -11,19 +11,23 @@ struct PortfolioRowViews: View {
     
     let coin: CoinModel
     let spacing: CGFloat = 6.0
+    let size: CGFloat = 45
     
     var body: some View {
         
         HStack {
+                
             Rectangle()
-                .frame(width: 45, height: 45)
+                .frame(width: size, height: size)
+                .foregroundColor(.theme.background)
+                .overlay(CoinImageView(coin: coin))
                 .cornerRadius(isSmallHeight() ? 8:12)
             
             VStack(alignment: .leading, spacing: spacing) {
                 Text(coin.name)
-                    .bold()
-                
+                    .custom(font: .bold, size: isSmallHeight() ? 14:18)
                 Text(coin.currentHoldingsValue.asNumberString() + " of portfolio")
+                    .custom(font: .medium, size: isSmallHeight() ? 12:16)
                     .foregroundColor(.secondary)
             }
             .font(.system(size: isSmallWidth() ? 15:19, weight: .regular, design: .rounded))
@@ -31,22 +35,30 @@ struct PortfolioRowViews: View {
             Spacer()
             
             VStack(alignment: .trailing, spacing: spacing) {
-                Text(coin.symbol.uppercased())
-                    .bold()
+                Text(coin.currentPrice.asCurrencyWithTwoDecimals())
+                    .custom(font: .medium, size: isSmallHeight() ? 14:18)
                     .foregroundColor(.accentColor)
-                    .padding(.horizontal, isSmallHeight() ? 8:10)
-                    .background(Color.theme.background)
                     .cornerRadius(5)
                 
-                Text(coin.priceChangePercentage24H?.asPercentageString() ?? "0%")
-                    .foregroundColor((coin.priceChangePercentage24H ?? 0) > 0  ?
-                                     Color.theme.green : .theme.red)
+                HStack(spacing: 0) {
+                    Image(systemName:
+                            (coin.priceChangePercentage24H ?? 0) > 0 ? "arrow.up" : "arrow.down" )
+                            .font(.subheadline)
+                    
+                    Text(coin.priceChangePercentage24H?.asPercentageString() ?? "0%")
+                        .custom(font: .medium, size: isSmallHeight() ? 14:18)
+                }
+                .foregroundColor((coin.priceChangePercentage24H ?? 0) > 0  ?
+                                 Color.theme.increaseRate : .theme.decreaseRate)
+
             }
             
         }
         .padding()
-        .background(.ultraThickMaterial)
+        .background(Color.theme.portfolio)
         .cornerRadius(isSmallHeight() ? 13:15)
+        .shadow(color: .theme.accentColor.opacity(0.15), radius: 10)
+        .padding(.bottom, isSmallHeight() ? 9:12)
     }
     
 }
@@ -54,8 +66,5 @@ struct PortfolioRowViews: View {
 struct PortfolioRowViews_Previews: PreviewProvider {
     static var previews: some View {
         PortfolioRowViews(coin: dev.coin)
-            .previewDevice("iPhone 13")
-//            .preferredColorScheme(.dark)
-        //            .previewLayout(.sizeThatFits)
     }
 }
