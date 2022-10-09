@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
-    @State private var showPortfolio: Bool = false
-    @State var showHoldingsColumn: Bool = false
+    @State private var showPortfolio: Bool = false // new sheet showing Portfolio View
+    @State private var showAddPortfolio: Bool = false // new sheet to add & edit user portfolio
     @State var showSearchBar: Bool = false
     
     private let rows: [GridItem]  = Array(repeating: GridItem(.adaptive(minimum: 200), spacing: 15), count: 1)
@@ -184,7 +184,7 @@ extension HomeView {
     private var allCoinsList: some View {
         LazyVStack {
             ForEach(vm.allCoins) { coin in
-                CoinRowViews(coin: coin, showHoldingsColumn: $showHoldingsColumn)
+                CoinRowViews(coin: coin)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
