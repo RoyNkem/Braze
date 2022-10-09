@@ -12,16 +12,17 @@ Using `Combine` framework with `Subscribers/Publishers` for efficient Data loadi
 ## Note
 This repository is still in development and I will continue to add more features to it.
 
+
 ## Features :camera_flash:
-* CoreData
-* Combine Framework 
-* Light/dark mode 
-* Live prices
-* User Portfolio 
-* iphone and ipad support
-* MVVM architecture
-* Search Features
-* Details of Coins 
+- [ ] CoreData
+- [x] Combine Framework 
+- [x] Light/dark mode 
+- [x] Live prices
+- [ ] User Portfolio 
+- [ ] iphone and ipad support
+- [x] MVVM architecture
+- [x] Search Features
+- [ ] Details of Coins 
 
 # Built with :heavy_heart_exclamation: using 
 
@@ -44,6 +45,8 @@ This repository is still in development and I will continue to add more features
 <img src="https://user-images.githubusercontent.com/95645767/194769295-ca3715aa-5676-4c2e-81c3-1ce5ca4fbb99.png" alt="Search View Dark" width = "241"/>
  </p>
  
+ <p align="right">(<a href="#top">back to top</a>)</p>
+
 ## API Reference
 
 #### Get all coins
