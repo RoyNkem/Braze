@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchBarView: View {
+    @EnvironmentObject var vm: HomeViewModel
     @Binding var searchText: String
     @Binding var showSearchBar: Bool
     @Binding var showPortfolio: Bool
@@ -92,6 +93,7 @@ extension SearchBarView {
                     .onTapGesture {
                         withAnimation {
                             self.showSearchBar = false
+                            self.vm.isSearchResultEmpty = false
                         }
                         UIApplication.shared.didEndEditing()
                         searchText.removeAll()

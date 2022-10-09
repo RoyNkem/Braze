@@ -18,13 +18,20 @@ class HomeViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     
+    @Published var isLoading: Bool = true
+    @Published var isSearchResultEmpty: Bool = false //temp
+    
     private var cancellables = Set<AnyCancellable>()
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
     
     
     init() {
-        addSubscribers()
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.addSubscribers()
+            self.isLoading = false
+        }
     }
     
     func addSubscribers() {
@@ -36,14 +43,17 @@ class HomeViewModel: ObservableObject {
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main) //publishes the 2 publishers after 0.5 seconds to allow users type tangible texts
             .map(filterCoins)
             .sink { [weak self] (returnedCoins) in
-                self?.allCoins = returnedCoins
+                
+                guard let self = self else { return }
+                self.allCoins = returnedCoins
             }
             .store(in: &cancellables)
         
-        marketDataService.$marketData //transform the returned market data model type to statistics model
-            .map(mapGlobalMarketData)
+        marketDataService.$marketData
+            .map(mapGlobalMarketData) //transform the returned market data model type to statistics model
             .sink { [weak self] (returnedStats) in
-                self?.statistics = returnedStats
+                guard let self = self else { return }
+                self.statistics = returnedStats
             }
             .store(in: &cancellables)
         
@@ -51,15 +61,28 @@ class HomeViewModel: ObservableObject {
     
     //MARK: func filterCoins
     private func filterCoins(text: String, startingCoins: [CoinModel]) -> [CoinModel] {
+        
         guard !text.isEmpty else {
+            self.isSearchResultEmpty = false
+            if !startingCoins.isEmpty {
+                self.isSearchResultEmpty = false
+            }
             return startingCoins
         }
+        
         let lowercasedText = text.lowercased()
         
         let filteredCoins = startingCoins.filter { (coin) -> Bool in
             return coin.name.lowercased().contains(lowercasedText) ||
             coin.symbol.lowercased().contains(lowercasedText) ||
             coin.id.lowercased().contains(lowercasedText)
+        }
+            
+        for _ in (0..<1) {
+            self.isSearchResultEmpty = false
+            if filteredCoins.count == 0 {
+                self.isSearchResultEmpty = true
+            }
         }
         
         return filteredCoins

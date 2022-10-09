@@ -58,12 +58,16 @@ struct PortfolioRowViews: View {
         .background(Color.theme.portfolio)
         .cornerRadius(isSmallHeight() ? 13:15)
         .shadow(color: .theme.accentColor.opacity(0.15), radius: 10)
+        .padding(.bottom, isSmallHeight() ? 6:8)
     }
     
 }
 
 struct PortfolioRowViews_Previews: PreviewProvider {
     static var previews: some View {
-        PortfolioRowViews(coin: dev.coin)
+        VStack {
+            PortfolioRowViews(coin: dev.coin)
+            PortfolioRowViews(coin: dev.coin)
+        }
     }
 }

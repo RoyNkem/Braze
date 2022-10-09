@@ -12,7 +12,6 @@ struct HomeView: View {
     @State private var showPortfolio: Bool = false
     @State var showHoldingsColumn: Bool = false
     @State var showSearchBar: Bool = false
-//    @State var isSearchEmpty: Bool = false
     
     private let rows: [GridItem]  = Array(repeating: GridItem(.adaptive(minimum: 200), spacing: 15), count: 1)
     private var radius: CGFloat = 25.0
@@ -28,17 +27,17 @@ struct HomeView: View {
                 
                 searchbar
                 
-                if !showPortfolio {
-                    if !showSearchBar {
+                if showPortfolio == false {
+                    if showSearchBar == false {
                         statisticsCard
                     }
                 }
                 
-                if vm.allCoins.isEmpty {
+                if vm.isSearchResultEmpty {
                     noCoinFound
                 }
                 
-                if !showPortfolio {
+                if showPortfolio == false {
                     if !vm.allCoins.isEmpty {
                         columnTitles
                     }
@@ -61,10 +60,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HomeView()
-                .preferredColorScheme(.dark)
-            
-            HomeView()
-                .previewDevice("iPhone 13")
+//                .preferredColorScheme(.dark)
         }
         .environmentObject(dev.homeVM)
     }
