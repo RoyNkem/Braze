@@ -14,13 +14,11 @@ extension Double {
     /// Examples:
     /// Convert 1234.56 to $1234.56
     /// ```
+    //MARK: currencyFormatter2
     private var currencyFormatter2: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = .currency
-        //formatter.locale = .current // <- default value
-        //formatter.currencyCode = "usd" // <- change currency
-        //formatter.currencySymbol = "$" // <- change currency symbol
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
         return formatter
@@ -32,6 +30,7 @@ extension Double {
     /// Convert 1234.56 to "$1234.56"
     /// ```
     /// - Returns: A string containing the formatted value of number using the receiver’s current settings.
+    //MARK: asCurrencyWithTwoDecimals
     func asCurrencyWithTwoDecimals() -> String {
         
         let number = NSNumber(value: self)
@@ -45,13 +44,11 @@ extension Double {
     /// Convert 12.3456 to $12.3456
     /// Convert 0.123456 to $0.123456
     /// ```
+    //MARK: currencyFormatter6
     private var currencyFormatter6: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = .currency
-        //formatter.locale = .current // <- default value
-        //formatter.currencyCode = "usd" // <- change currency
-        //formatter.currencySymbol = "$" // <- change currency symbol
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 6
         return formatter
@@ -65,6 +62,7 @@ extension Double {
     /// Convert 0.123456 to "$0.123456"
     /// ```
     /// - Returns: A string containing the formatted value of number using the receiver’s current settings.
+    //MARK: asCurrencyWithSixDecimals
     func asCurrencyWithSixDecimals() -> String {
         
         let number = NSNumber(value: self)
@@ -76,6 +74,7 @@ extension Double {
     /// Examples:
     /// Convert 1.23456 to "1.234"
     /// ```
+    //MARK: asNumberString
     func asNumberString() -> String {
         return String(format: "%.2f", self)
     }
@@ -85,6 +84,7 @@ extension Double {
     /// Examples:
     /// Convert 1.23456 to "1.23%"
     /// ```
+    //MARK: asPercentageString
     func asPercentageString() -> String {
         return asNumberString() + "%"
     }
@@ -100,6 +100,7 @@ extension Double {
     /// Convert 123456789012 to 123.45Bn
     /// Convert 12345678901234 to 12.34Tr
     /// ```
+    //MARK: formattedWithAbbreviations
     func formattedWithAbbreviations() -> String {
         let num = abs(Double(self))
         let sign = (self < 0) ? "-" : ""

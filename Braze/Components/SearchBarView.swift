@@ -81,7 +81,8 @@ extension SearchBarView {
     
     //MARK: TextField
     private var textfield: some View {
-        TextField("Search by name or symbol...", text: $searchText)
+        TextField(showPortfolio ? "Find coin in portfolio" : "Search by name or symbol...",
+                  text: $searchText)
             .custom(font: .regular, size: isSmallWidth() ? 14:18)
             .disableAutocorrection(true)
             .foregroundColor(.theme.accentColor)

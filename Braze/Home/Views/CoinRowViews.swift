@@ -11,7 +11,6 @@ struct CoinRowViews: View {
     
     private let size: CGFloat = 32.0
     let coin: CoinModel
-    @Binding var showHoldingsColumn: Bool
     
     var body: some View {
         HStack(spacing: 0) {
@@ -29,10 +28,10 @@ struct CoinRowViews: View {
 struct CoinROwViews_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CoinRowViews(coin: dev.coin, showHoldingsColumn: .constant(false))
+            CoinRowViews(coin: dev.coin)
                 .previewLayout(.sizeThatFits)
             
-            CoinRowViews(coin: dev.coin, showHoldingsColumn: .constant(false))
+            CoinRowViews(coin: dev.coin)
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.dark)
         }
