@@ -36,11 +36,14 @@ This repository is still in development and I will continue to add more features
 ## ScreenShots
 
 <p>
-<img src="https://user-images.githubusercontent.com/95645767/194495367-f8b2df87-9838-4d88-8948-709a165671c3.png" alt="Home View Dark" width = "240" />
-<img src="https://user-images.githubusercontent.com/95645767/194495474-9053824d-fb1b-4b0f-a497-b1f04c182208.png" alt="Home View Light" width = "241"/>
-  
-</p>
-  
+<img src="https://user-images.githubusercontent.com/95645767/194769322-8fc6dae1-8716-4d57-ac74-0b162870e629.png" alt="Home View Dark" width = "240" />
+<img src="https://user-images.githubusercontent.com/95645767/194769300-ab05a313-7765-4d4a-9d13-63a87a570991.png" alt="Home View Dark" width = "241"/>
+<img src="https://user-images.githubusercontent.com/95645767/194769305-5b518942-df7b-42e7-b073-38b7411242d5.png" alt="Portfolio View Light" width = "240"/>
+<img src="https://user-images.githubusercontent.com/95645767/194769737-24bdef62-4de3-4f1a-9351-0032062186bf.png" alt="Portfolio View Dark" width = "241"/>
+<img src="https://user-images.githubusercontent.com/95645767/194769734-39590124-d265-451a-8324-31acf248bfdb.png" alt="Search View Light" width = "240"/>
+<img src="https://user-images.githubusercontent.com/95645767/194769295-ca3715aa-5676-4c2e-81c3-1ce5ca4fbb99.png" alt="Search View Dark" width = "241"/>
+ </p>
+ 
 ## API Reference
 
 #### Get all coins
