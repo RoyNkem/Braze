@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct StatisticsModel: Identifiable {
+class StatisticsModel: Identifiable {
     
     let id = UUID().uuidString
     let title: String

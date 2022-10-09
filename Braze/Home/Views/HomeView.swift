@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var showPortfolio: Bool = false
     @State var showHoldingsColumn: Bool = false
     @State var showSearchBar: Bool = false
+//    @State var isSearchEmpty: Bool = false
     
     private let rows: [GridItem]  = Array(repeating: GridItem(.adaptive(minimum: 200), spacing: 15), count: 1)
     private var radius: CGFloat = 25.0
@@ -28,12 +29,19 @@ struct HomeView: View {
                 searchbar
                 
                 if !showPortfolio {
-                    statisticsCard
+                    if !showSearchBar {
+                        statisticsCard
+                    }
+                }
+                
+                if vm.allCoins.isEmpty {
+                    noCoinFound
                 }
                 
                 if !showPortfolio {
-                    columnTitles
-                    
+                    if !vm.allCoins.isEmpty {
+                        columnTitles
+                    }
                     allCoinsList
                         .transition(.move(edge: .trailing))
                 } else {
@@ -224,9 +232,26 @@ extension HomeView {
         }
         .custom(font: .regular, size: isSmallWidth() ? 12:14)
         .foregroundColor(.theme.secondary)
-        .padding(.top, isSmallHeight() ? 3:6)
+        .padding(.top, isSmallHeight() ? 8:12)
         .padding(.horizontal, 8)
-        .padding(.bottom, isSmallHeight() ? -9:-12)
+        .padding(.bottom, isSmallHeight() ? -6:-8)
+    }
+    
+    //MARK: noCoinFound
+    private var noCoinFound: some View {
+        LazyHStack {
+            LazyVStack {
+                Text("We couldn't find any results for \(vm.searchText)...")
+                    .custom(font: .bold, size: isSmallHeight() ? 14:16)
+                    .lineLimit(1)
+                    .padding(.vertical)
+
+                Image(systemName: "magnifyingglass")
+                    .font(.system(size: isSmallHeight() ? 36:50, weight: .bold))
+            }
+            .foregroundColor(.secondary)
+        }
+        .padding(.vertical, 30)
     }
     
 }
