@@ -10,13 +10,12 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
     @State private var showPortfolio: Bool = false // new sheet showing Portfolio View
-    @State private var showAddPortfolio: Bool = false // new sheet to add & edit user portfolio
+    @State private var showAddPortfolioView: Bool = false // new sheet to add & edit user portfolio
     @State var showSearchBar: Bool = false
     
     private let rows: [GridItem]  = Array(repeating: GridItem(.adaptive(minimum: 200), spacing: 15), count: 1)
     private var radius: CGFloat = 25.0
-    var width: CGFloat = 60
-    var height: CGFloat = 60
+    var size: CGFloat = 50
     
     var body: some View {
         
@@ -34,7 +33,8 @@ struct HomeView: View {
                 }
                 
                 if vm.isSearchResultEmpty {
-                    noCoinFound
+                    NoCoinView()
+                        .environmentObject(vm)
                 }
                 
                 if showPortfolio == false {
@@ -48,6 +48,10 @@ struct HomeView: View {
                         .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading).combined(with: .opacity)))
                 }
             }
+            .sheet(isPresented: $showAddPortfolioView) {
+                AddPortfolioView()
+                    .environmentObject(vm)
+            }
         }
         .background(Color.theme.homeBackground.opacity(0.3))
         .ignoresSafeArea(.container, edges: .top)
@@ -60,7 +64,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HomeView()
-//                .preferredColorScheme(.dark)
+                .preferredColorScheme(.dark)
         }
         .environmentObject(dev.homeVM)
     }
@@ -81,12 +85,13 @@ extension HomeView {
             Spacer()
             
         }
-        .padding(.top, isSmallHeight() ? 20 : 50)
-        .padding()
+        .padding(.top, isSmallHeight() ? 25 : 50)
+        .padding(.horizontal)
+        .padding(.vertical, isSmallHeight() ? 6:8)
         .foregroundColor(.white)
-        .font(.system(size: isSmallHeight() ? 12 : 15))
+        .font(.system(size: isSmallHeight() ? 11 : 13))
         .background(LinearGradient(colors: [Color.theme.blue, Color.theme.purple], startPoint: .leading, endPoint: .trailing))
-        .cornerRadius(isSmallHeight() ? 20:40, corners: [.bottomLeft, .bottomRight])
+        .cornerRadius(10, corners: [.bottomLeft, .bottomRight])
     }
     
     //MARK: profileRow
@@ -95,15 +100,16 @@ extension HomeView {
             Image("avatar")
                 .resizable()
                 .scaledToFill()
-                .frame(width: isSmallHeight() ? width*0.75 : width, height: isSmallHeight() ? height*0.75 : height)
+                .frame(width: isSmallHeight() ? size*0.8 : size, height: isSmallHeight() ? size*0.8 : size)
                 .clipShape(RoundedRectangle(cornerSize: .init(width: radius/2, height: radius/2)))
                 .overlay(content: {
                     RoundedRectangle(cornerRadius: radius/2)
                         .stroke(Color.white, lineWidth: 1)
                 })
+                .padding(.bottom, isSmallHeight() ? -5:-10)
             
             Text("Hello, Roy").bold()
-                .font(.system(size: isSmallHeight() ? 15:18))
+                .font(.system(size: isSmallHeight() ? 14:16))
                 .foregroundColor(.white.opacity(0.8))
             
             Spacer()
@@ -122,20 +128,24 @@ extension HomeView {
     //MARK: buttonRow
     private var buttonRow: some View {
         HStack {
-            Buttons(icon: "plus", text: "Add") {
-                print("Clicked")
+            ProfileButtons(icon: "plus", text: "Add") {
+                showAddPortfolioView = true
+            }
+            
+            Spacer()
+            ProfileButtons(icon: "line.diagonal.arrow", text: "Send") {
+                //perform send button action
+                
             }
             Spacer()
-            Buttons(icon: "line.diagonal.arrow", text: "Send") {
-                print("Clicked")
+            ProfileButtons(icon: "arrow.down", text: "Request") {
+                //perform request button action
+                
             }
             Spacer()
-            Buttons(icon: "arrow.down", text: "Request") {
-                print("Clicked")
-            }
-            Spacer()
-            Buttons(icon: "menubar.dock.rectangle", text: "Bill") {
-                print("Clicked")
+            ProfileButtons(icon: "menubar.dock.rectangle", text: "Bill") {
+                //perform wallet button action
+                
             }
         }
         .padding(.horizontal, isSmallHeight() ? 9:12)
@@ -145,10 +155,10 @@ extension HomeView {
     private var priceRow: some View {
         HStack(alignment: .bottom, spacing: 0) {
             Text("$7,684.")
-                .custom(font: .bold, size: isSmallHeight() ? 30:40)
+                .custom(font: .bold, size: isSmallHeight() ? 30:35)
             
             Text("00")
-                .custom(font: .medium, size: isSmallHeight() ? 20:25)
+                .custom(font: .medium, size: isSmallHeight() ? 18:20)
                 .offset(y: -5)
             
             Text("+4.34%").foregroundColor(.black)
@@ -158,14 +168,15 @@ extension HomeView {
                 .padding(.leading)
                 .offset(y: -10)
         }
-        .padding(.bottom,isSmallHeight() ? 10:20)
+        .padding(.top, isSmallHeight() ? -9:-12)
+        .padding(.bottom,isSmallHeight() ? 1:5)
     }
     
     //MARK: searchbar
     private var searchbar: some View {
-        SearchBarView(searchText: $vm.searchText, showSearchBar: $showSearchBar, showPortfolio: $showPortfolio)
+        SearchBarHomeView(searchText: $vm.searchText, showSearchBar: $showSearchBar, showPortfolio: $showPortfolio)
             .padding(.top, isSmallHeight() ? 2:4)
-            .padding(.horizontal, 7)
+            .padding(.horizontal, 5)
     }
     
     //MARK: statisticsCard
@@ -200,6 +211,7 @@ extension HomeView {
                 Text("Portfolio")
                     .custom(font: .bold, size: 30)
                     .font(.system(size: isSmallHeight() ? 23:30, weight: .bold, design: .rounded))
+                    .padding(.bottom, -6)
                 
                 Spacer()
             }
@@ -208,7 +220,7 @@ extension HomeView {
                 PortfolioRowViews(coin: coin)
             }
         }
-        .padding(.horizontal, isSmallHeight() ? 6:8)
+        .padding(.horizontal, isSmallHeight() ? 12:14)
     }
     
     //MARK: columnTitles
@@ -229,26 +241,7 @@ extension HomeView {
         .custom(font: .regular, size: isSmallWidth() ? 12:14)
         .foregroundColor(.theme.secondary)
         .padding(.top, isSmallHeight() ? 8:12)
-        .padding(.horizontal, 8)
         .padding(.bottom, isSmallHeight() ? -6:-8)
     }
     
-    //MARK: noCoinFound
-    private var noCoinFound: some View {
-        LazyHStack {
-            LazyVStack {
-                Text("We couldn't find any results for \(vm.searchText)...")
-                    .custom(font: .bold, size: isSmallHeight() ? 14:16)
-                    .lineLimit(1)
-                    .padding(.vertical)
-
-                Image(systemName: "magnifyingglass")
-                    .font(.system(size: isSmallHeight() ? 36:50, weight: .bold))
-            }
-            .foregroundColor(.secondary)
-        }
-        .padding(.vertical, 30)
-    }
-    
 }
-

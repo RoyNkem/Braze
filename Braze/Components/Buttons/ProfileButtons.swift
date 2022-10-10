@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Buttons: View {
+struct ProfileButtons: View {
     var icon: String
     var text: String
     var clicked: (() -> Void) //closure for callback
@@ -32,7 +32,7 @@ struct Buttons: View {
 
 struct Buttons_Previews: PreviewProvider {
     static var previews: some View {
-        Buttons(icon: "plus", text: "Add") {
+        ProfileButtons(icon: "plus", text: "Add") {
             print("Clicked")
         }
         .padding(40)
