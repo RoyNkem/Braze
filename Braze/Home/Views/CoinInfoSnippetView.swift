@@ -88,7 +88,7 @@ extension CoinInfoSnippetView {
                     .padding(.horizontal, isSmallWidth() ? 15:20)
                     .padding(.bottom, 10)
                 
-                //MARK: Coin Market Data
+                //extracted coin data row showing rank, live price and market cap
                 coinMarketData
                 
                 //MARK: Buttons
@@ -122,6 +122,7 @@ extension CoinInfoSnippetView {
             .background(Color.theme.homeBackground.opacity(0.8))
             .cornerRadius(30, corners: [.topLeft, .topRight])
             
+            //coin image view
             CoinImageView(coin: coin)
                 .frame(width: size, height: size)
                 .shadow(color: .purple.opacity(0.5) ,radius: 10, y: -5)
@@ -172,6 +173,7 @@ extension CoinInfoSnippetView {
             }
     }
     
+    //MARK: Coin Market Data
     private var coinMarketData: some View {
         HStack {
             VStack {
