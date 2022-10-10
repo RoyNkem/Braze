@@ -67,6 +67,7 @@ struct PortfolioRowViews_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             PortfolioRowViews(coin: dev.coin)
+                .preferredColorScheme(.dark)
             PortfolioRowViews(coin: dev.coin)
         }
     }
