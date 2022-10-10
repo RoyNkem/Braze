@@ -25,4 +25,6 @@ struct ColorTheme {
     let increaseRate = Color("CoinIncreaseRateColor")
     let decreaseRate = Color("CoinDecreaseRateColor")
     let portfolio = Color("PortfolioColor")
+    let blackWhite = Color("BlackWhite")
+    let shadow = Color("Shadow")
 }
