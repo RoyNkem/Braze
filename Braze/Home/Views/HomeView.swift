@@ -174,7 +174,7 @@ extension HomeView {
     
     //MARK: searchbar
     private var searchbar: some View {
-        SearchBarHomeView(searchText: $vm.searchText, showSearchBar: $showSearchBar, showPortfolio: $showPortfolio)
+        SearchBarView(searchText: $vm.searchText, showSearchBar: $showSearchBar, showPortfolio: $showPortfolio)
             .padding(.top, isSmallHeight() ? 2:4)
             .padding(.horizontal, 5)
     }

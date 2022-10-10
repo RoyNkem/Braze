@@ -11,6 +11,7 @@ struct AddPortfolioView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
     @State private var selectedCoin: CoinModel? = nil
+    @State private var isShowingBottomCard:  Bool = false
     
     var selectedGradient: LinearGradient = LinearGradient(
         colors: [.theme.purple, .theme.blue, .theme.purple],
@@ -28,7 +29,7 @@ struct AddPortfolioView: View {
                         editPortfolioText
                         searchBar
                         noCoinFound //conditional View that shows when there are no coin results
-                        coinLogoList //scrollView that enables selection of coin
+                        coinLogoList //scrollView that enables selection of coin after network request
                     }
                     .padding(.vertical)
                     
@@ -39,9 +40,9 @@ struct AddPortfolioView: View {
             .ignoresSafeArea(.container, edges: .top)
             
             XMarkButton()
+            
+            CoinInfoSnippetView(isShowingCard: $isShowingBottomCard, coin: (selectedCoin ?? (vm.allCoins.first)) ?? CoinModel.instance)
         }
-        //tap any area outside the sheet to dismiss it
-        
     }
     
 }
@@ -49,13 +50,14 @@ struct AddPortfolioView: View {
 struct AddPortfolioView_Previews: PreviewProvider {
     static var previews: some View {
         AddPortfolioView()
-        //            .preferredColorScheme(.dark)
+            .preferredColorScheme(.dark)
             .environmentObject(dev.homeVM)
     }
 }
 
 extension AddPortfolioView {
     
+    //MARK: editPortfolioText
     private var editPortfolioText: some View {
         
         Text("Edit Portfolio")
@@ -64,11 +66,13 @@ extension AddPortfolioView {
             .padding(.vertical, isSmallHeight() ? 8:1)
     }
     
+    //MARK: searchBar
     private var searchBar: some View {
-        SearchBarHomeView(searchText: $vm.searchText, showSearchBar: .constant(true), showPortfolio: .constant(false))
+        SearchBarView(searchText: $vm.searchText, showSearchBar: .constant(true), showPortfolio: .constant(false))
             .padding(.bottom, isSmallHeight() ? 12:16)
     }
     
+    //MARK: coinLogoList
     private var coinLogoList: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
@@ -80,6 +84,7 @@ extension AddPortfolioView {
                         .onTapGesture {
                             withAnimation(.easeIn(duration: 0.5)) {
                                 selectedCoin = coin
+                                isShowingBottomCard = true
                             }
                         }
                         .background(
@@ -96,6 +101,7 @@ extension AddPortfolioView {
         }
     }
     
+    //MARK: noCoinFound
     private var noCoinFound: some View {
         
         LazyVStack {
