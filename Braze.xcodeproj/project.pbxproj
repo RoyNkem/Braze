@@ -20,6 +20,8 @@
 		3050F89228F44A8B00B6D307 /* StrokeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050F89128F44A8B00B6D307 /* StrokeStyle.swift */; };
 		3052F74928EE30310089CEC9 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052F74828EE30310089CEC9 /* NetworkingManager.swift */; };
 		307591C028F4673F005C2A87 /* ExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307591BF28F4673F005C2A87 /* ExpandableText.swift */; };
+		307591C228F48699005C2A87 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307591C128F48699005C2A87 /* PreferenceKeys.swift */; };
+		307591C428F486E7005C2A87 /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307591C328F486E7005C2A87 /* InputStyle.swift */; };
 		307DE4A028F0D018000A8B46 /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307DE49F28F0D018000A8B46 /* ScaledFont.swift */; };
 		3092805D28E924BC00639EA9 /* PortfolioRowViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */; };
 		30A554D328F2325800C6CA36 /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A554D228F2325800C6CA36 /* MarketDataModel.swift */; };
@@ -87,6 +89,8 @@
 		3050F89128F44A8B00B6D307 /* StrokeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeStyle.swift; sourceTree = "<group>"; };
 		3052F74828EE30310089CEC9 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		307591BF28F4673F005C2A87 /* ExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableText.swift; sourceTree = "<group>"; };
+		307591C128F48699005C2A87 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
+		307591C328F486E7005C2A87 /* InputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStyle.swift; sourceTree = "<group>"; };
 		307DE49F28F0D018000A8B46 /* ScaledFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledFont.swift; sourceTree = "<group>"; };
 		3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioRowViews.swift; sourceTree = "<group>"; };
 		30A554D228F2325800C6CA36 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				30BD3A7028E87E790060A03E /* RoundedCorner.swift */,
 				3050F88E28F44A2E00B6D307 /* AngularButtonStyle.swift */,
 				3050F89128F44A8B00B6D307 /* StrokeStyle.swift */,
+				307591C328F486E7005C2A87 /* InputStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			children = (
 				3052F74828EE30310089CEC9 /* NetworkingManager.swift */,
 				30FC3F9B28EFECB5001FD042 /* LocalFileManager.swift */,
+				307591C128F48699005C2A87 /* PreferenceKeys.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 				30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */,
 				30FC3F9A28EF7D76001FD042 /* CoinImageViewModel.swift in Sources */,
 				30032FBF28F3A1AC00B82835 /* XMarkButton.swift in Sources */,
+				307591C228F48699005C2A87 /* PreferenceKeys.swift in Sources */,
 				30032FBB28F3557D00B82835 /* HeaderView.swift in Sources */,
 				30F1A7F128F3AC0600415D5D /* CoinLogoView.swift in Sources */,
 				3048518728E8A6320006A23B /* HomeViewModel.swift in Sources */,
@@ -494,6 +501,7 @@
 				30BD3A6D28E87A480060A03E /* PreviewProvider.swift in Sources */,
 				30F1A7F328F3AE7A00415D5D /* NoCoinView.swift in Sources */,
 				304A3C5928F1623400D30043 /* StatisticsModel.swift in Sources */,
+				307591C428F486E7005C2A87 /* InputStyle.swift in Sources */,
 				30F1A7F528F3BF4000415D5D /* CoinInfoSnippetView.swift in Sources */,
 				30032FBD28F3634C00B82835 /* Animation.swift in Sources */,
 				30FC3F9C28EFECB5001FD042 /* LocalFileManager.swift in Sources */,
