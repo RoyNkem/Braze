@@ -10,6 +10,7 @@ import SwiftUI
 struct CoinInfoSnippetView: View {
     
     @Binding var isShowingCard: Bool
+//    @State var expanded: Bool = false
     @State private var currentHeight: CGFloat = 350
     @State private var prevDragTranslation = CGSize.zero
     @State private var isDragging: Bool = false
@@ -18,6 +19,8 @@ struct CoinInfoSnippetView: View {
     let maxHeight: CGFloat = 500
     let coin: CoinModel
     let size: CGFloat = 80
+    
+    var clicked: (() -> Void) //closure for callback
     
     let startOpacity: Double = 0.6
     let endOpacity: Double = 0.8
@@ -55,7 +58,9 @@ struct CoinInfoSnippetView: View {
 
 struct CoinInfoSnippetView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinInfoSnippetView(isShowingCard: .constant(true), coin: dev.coin)
+        CoinInfoSnippetView(isShowingCard: .constant(true), coin: dev.coin) {
+            print("button clicked")
+        }
 //            .preferredColorScheme(.dark)
     }
 }
@@ -79,11 +84,10 @@ extension CoinInfoSnippetView {
                 
                 //MARK: Coin Description
                 //fetch coin summary
-                Text("This is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgfThis is a nbdkhkvkfgf")
+                ExpandableText("Create a ZStack with unbounded height to allow the inner Text as much, Render the limited text and measure its size, Hide the background Indicates whether the text has been truncated in its display. Create a ZStack with unbounded height to allow the inner Text as much, Render the limited text and measure its size, Hide the background Indicates whether the text has been truncated in its display. Create a ZStack with unbounded height to allow the inner Text as much, Render the limited text and measure its size, Hide the background Indicates whether the text has been truncated in its display.", lineLimit: 2)
                     .foregroundColor(.theme.secondary)
-                    .custom(font: .medium, size: 15)
+                    .custom(font: .medium, size: 16)
                     .lineLimit(2)
-                    .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, isSmallWidth() ? 15:20)
                     .padding(.bottom, 10)
@@ -110,7 +114,7 @@ extension CoinInfoSnippetView {
                     .shadow(color: .theme.background.opacity(0.5), radius: 10)
                     
                     LongButton(text: "Add to My Portfolio") {
-                        print("Long button tapped")
+                        ("pressed add to portfolio")
                     }
                 }
                 .custom(font: .bold, size: isSmallHeight() ? 13:16)
@@ -137,7 +141,6 @@ extension CoinInfoSnippetView {
                 .shadow(color: .theme.purple, radius: 10, x: 0, y: -5)
                 .blur(radius: 2)
         }
-        //        .animation(isDragging ? nil : .easeInOut(duration: 0.45)) depracated
         .animation(.easeInOut(duration: 0.5), value: isDragging)
         .onDisappear {
             currentHeight = minHeight

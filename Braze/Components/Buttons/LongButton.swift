@@ -18,7 +18,6 @@ struct LongButton: View {
         Button (action: {
             // perform action here when clicked
             
-            
             tap = true //animate tap gesture with delay
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 tap = false

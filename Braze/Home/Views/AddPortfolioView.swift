@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct AddPortfolioView: View {
+    enum Field: Hashable {
+        case searchBar
+        case coinQuantity
+    }
     
     @EnvironmentObject private var vm: HomeViewModel
+    @FocusState var focusedField: Field? // enum above
     @State private var selectedCoin: CoinModel? = nil
     @State private var isShowingBottomCard:  Bool = false
+    @State private var quantityText: String = ""
+    @State var searchBarY: CGFloat = 120
+    @State var coinQuantity: CGFloat = 0 // y axis coordinates
+    @State var circleY: CGFloat = 120
     
     var selectedGradient: LinearGradient = LinearGradient(
         colors: [.theme.purple, .theme.blue, .theme.purple],
@@ -30,6 +39,21 @@ struct AddPortfolioView: View {
                         searchBar
                         noCoinFound //conditional View that shows when there are no coin results
                         coinLogoList //scrollView that enables selection of coin after network request
+                        
+                        if selectedCoin != nil {
+                            VStack {
+                                HStack {
+                                    Text("Current Price of \(selectedCoin?.symbol.uppercased() ?? ""):")
+                                    Spacer()
+                                    Text(selectedCoin?.currentPrice.asCurrencyWithTwoDecimals() ?? "")
+                                        .bold()
+                                }
+                                addCoinQuantityField
+                                
+                            }
+                            .padding(isSmallHeight() ? 10:15)
+                            .custom(font: .medium, size: isSmallHeight() ? 13:16)
+                        }
                     }
                     .padding(.vertical)
                     
@@ -41,7 +65,9 @@ struct AddPortfolioView: View {
             
             XMarkButton()
             
-            CoinInfoSnippetView(isShowingCard: $isShowingBottomCard, coin: (selectedCoin ?? (vm.allCoins.first)) ?? CoinModel.instance)
+            CoinInfoSnippetView(isShowingCard: $isShowingBottomCard, coin: (selectedCoin ?? (vm.allCoins.first)) ?? CoinModel.instance) {
+                
+            }
         }
     }
     
@@ -50,7 +76,7 @@ struct AddPortfolioView: View {
 struct AddPortfolioView_Previews: PreviewProvider {
     static var previews: some View {
         AddPortfolioView()
-            .preferredColorScheme(.dark)
+//            .preferredColorScheme(.dark)
             .environmentObject(dev.homeVM)
     }
 }
@@ -80,7 +106,6 @@ extension AddPortfolioView {
                 ForEach(vm.allCoins) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
-                        .padding(isSmallHeight() ? 0:4)
                         .onTapGesture {
                             withAnimation(.easeIn(duration: 0.5)) {
                                 selectedCoin = coin
@@ -101,6 +126,31 @@ extension AddPortfolioView {
         }
     }
     
+    //MARK: addCoinQuantity
+    private var addCoinQuantityField: some View {
+        VStack(spacing: isSmallHeight() ? 12:20) {
+            TextField("Enter Quantity to add", text: $quantityText)
+                .custom(font: .medium, size: isSmallHeight() ? 15:18)
+                .inputStyle(icon: "mail")
+                .keyboardType(.decimalPad)
+                .disableAutocorrection(true)
+                .shadow(color: focusedField == .coinQuantity ? .primary.opacity(0.3) : .primary.opacity(0.3), radius: 10, x: 1, y: 3)
+            
+            HStack {
+                Text("Current Value of Quantity:")
+                Spacer()
+                Text(getCurrentValue().asCurrencyWithTwoDecimals())
+                    .bold()
+            }
+        }
+    }
+    
+    private var geometry: some View {
+        GeometryReader { proxy in
+            Color.clear.preference(key: CirclePreferenceKey.self, value: proxy.frame(in: .named("container")).minY)
+        } //color.clear wont make view appear and will keep the layout
+    }
+    
     //MARK: noCoinFound
     private var noCoinFound: some View {
         
@@ -110,6 +160,21 @@ extension AddPortfolioView {
                     .environmentObject(vm)
             }
         }
+    }
+    
+    //MARK: func getCurrentValue
+    private func getCurrentValue() -> Double {
+        if let quantity = Double(quantityText) {
+            return quantity * (selectedCoin?.currentPrice ?? 0)
+        }
+        return 0
+    }
+    
+    //MARK: divider
+    private var divider: some View {
+        Rectangle()
+            .frame(height: 1)
+            .foregroundColor(.secondary)
     }
     
 }

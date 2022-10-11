@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
-    @State private var showPortfolio: Bool = true // new sheet showing Portfolio View
+    @State private var showPortfolio: Bool = false // new sheet showing Portfolio View
     @State private var showAddPortfolioView: Bool = false // new sheet to add & edit user portfolio
     @State var showSearchBar: Bool = false
     
