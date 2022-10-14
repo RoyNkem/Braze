@@ -33,6 +33,9 @@
 		30BD3A7128E87E790060A03E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A7028E87E790060A03E /* RoundedCorner.swift */; };
 		30BD3A7328E8938F0060A03E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A7228E8938F0060A03E /* Double.swift */; };
 		30BD3A7528E89AB00060A03E /* CoinRowViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A7428E89AB00060A03E /* CoinRowViews.swift */; };
+		30DBA60128F611A70031FF38 /* AnimatedCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DBA60028F611A70031FF38 /* AnimatedCircles.swift */; };
+		30DBA60428F61BC60031FF38 /* ForegroundLinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DBA60328F61BC60031FF38 /* ForegroundLinearGradient.swift */; };
+		30DBA60628F6206B0031FF38 /* SaveButtonAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DBA60528F6206B0031FF38 /* SaveButtonAnimated.swift */; };
 		30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88728E231A600393AB3 /* BrazeApp.swift */; };
 		30DDA88A28E231A600393AB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88928E231A600393AB3 /* HomeView.swift */; };
 		30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */; };
@@ -102,6 +105,9 @@
 		30BD3A7028E87E790060A03E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		30BD3A7228E8938F0060A03E /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		30BD3A7428E89AB00060A03E /* CoinRowViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowViews.swift; sourceTree = "<group>"; };
+		30DBA60028F611A70031FF38 /* AnimatedCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCircles.swift; sourceTree = "<group>"; };
+		30DBA60328F61BC60031FF38 /* ForegroundLinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundLinearGradient.swift; sourceTree = "<group>"; };
+		30DBA60528F6206B0031FF38 /* SaveButtonAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonAnimated.swift; sourceTree = "<group>"; };
 		30DDA88428E231A600393AB3 /* Braze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DDA88728E231A600393AB3 /* BrazeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeApp.swift; sourceTree = "<group>"; };
 		30DDA88928E231A600393AB3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 				3050F88E28F44A2E00B6D307 /* AngularButtonStyle.swift */,
 				3050F89128F44A8B00B6D307 /* StrokeStyle.swift */,
 				307591C328F486E7005C2A87 /* InputStyle.swift */,
+				30DBA60328F61BC60031FF38 /* ForegroundLinearGradient.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -231,7 +238,6 @@
 				30BD3A6E28E87A720060A03E /* Color.swift */,
 				30BD3A7228E8938F0060A03E /* Double.swift */,
 				307DE49F28F0D018000A8B46 /* ScaledFont.swift */,
-				30032FBC28F3634C00B82835 /* Animation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,6 +250,16 @@
 				30A554D228F2325800C6CA36 /* MarketDataModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		30DBA60228F611AD0031FF38 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				30032FBC28F3634C00B82835 /* Animation.swift */,
+				30DBA60028F611A70031FF38 /* AnimatedCircles.swift */,
+				30DBA60528F6206B0031FF38 /* SaveButtonAnimated.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		30DDA87B28E231A600393AB3 = {
@@ -281,6 +297,7 @@
 				30DDA89028E231B000393AB3 /* Persistence.swift */,
 				30DDA8B628E2323400393AB3 /* Assets.xcassets */,
 				3050F89028F44A3400B6D307 /* Styles */,
+				30DBA60228F611AD0031FF38 /* Animations */,
 			);
 			path = Braze;
 			sourceTree = "<group>";
@@ -474,6 +491,7 @@
 				300015FC28E9460C0081ACFF /* CoinDataService.swift in Sources */,
 				30BD3A6F28E87A720060A03E /* Color.swift in Sources */,
 				30BD3A7528E89AB00060A03E /* CoinRowViews.swift in Sources */,
+				30DBA60428F61BC60031FF38 /* ForegroundLinearGradient.swift in Sources */,
 				304A3C5728F15E2F00D30043 /* MarketStatisticsCard.swift in Sources */,
 				307591C028F4673F005C2A87 /* ExpandableText.swift in Sources */,
 				307DE4A028F0D018000A8B46 /* ScaledFont.swift in Sources */,
@@ -484,6 +502,7 @@
 				30DDA88A28E231A600393AB3 /* HomeView.swift in Sources */,
 				30032FB928F3550300B82835 /* AddPortfolioView.swift in Sources */,
 				30FC3F9828EF7BBF001FD042 /* CoinImageService.swift in Sources */,
+				30DBA60628F6206B0031FF38 /* SaveButtonAnimated.swift in Sources */,
 				3050F88D28F449B800B6D307 /* LongButton.swift in Sources */,
 				3050F88F28F44A2E00B6D307 /* AngularButtonStyle.swift in Sources */,
 				30DDA8BF28E24C1500393AB3 /* ProfileButtons.swift in Sources */,
@@ -496,6 +515,7 @@
 				3048518728E8A6320006A23B /* HomeViewModel.swift in Sources */,
 				30A554D328F2325800C6CA36 /* MarketDataModel.swift in Sources */,
 				30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */,
+				30DBA60128F611A70031FF38 /* AnimatedCircles.swift in Sources */,
 				30FC3F9E28F01318001FD042 /* SearchBarView.swift in Sources */,
 				30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */,
 				30BD3A6D28E87A480060A03E /* PreviewProvider.swift in Sources */,

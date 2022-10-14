@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+
+let Pink = Color(red: 246/255, green: 127/255, blue: 195/255)
+let Purple = Color(red: 182/255, green: 33/255, blue: 254/255)
+
 extension Color {
     ///A custom theme that allows you add color palettes to your app
     static let theme = ColorTheme()
@@ -27,4 +31,5 @@ struct ColorTheme {
     let portfolio = Color("PortfolioColor")
     let blackWhite = Color("BlackWhite")
     let shadow = Color("Shadow")
+    let animationColorBackground = Color("AnimationColorBackground")
 }

@@ -61,7 +61,6 @@ struct CoinInfoSnippetView_Previews: PreviewProvider {
         CoinInfoSnippetView(isShowingCard: .constant(true), coin: dev.coin) {
             print("button clicked")
         }
-//            .preferredColorScheme(.dark)
     }
 }
 
@@ -114,7 +113,8 @@ extension CoinInfoSnippetView {
                     .shadow(color: .theme.background.opacity(0.5), radius: 10)
                     
                     LongButton(text: "Add to My Portfolio") {
-                        ("pressed add to portfolio")
+                        print("pressed add to portfolio")
+                        
                     }
                 }
                 .custom(font: .bold, size: isSmallHeight() ? 13:16)
