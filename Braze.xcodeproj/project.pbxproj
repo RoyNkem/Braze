@@ -19,6 +19,8 @@
 		3050F88F28F44A2E00B6D307 /* AngularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050F88E28F44A2E00B6D307 /* AngularButtonStyle.swift */; };
 		3050F89228F44A8B00B6D307 /* StrokeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050F89128F44A8B00B6D307 /* StrokeStyle.swift */; };
 		3052F74928EE30310089CEC9 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052F74828EE30310089CEC9 /* NetworkingManager.swift */; };
+		3061124928F8EE2E00957C9E /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3061124728F8EE2E00957C9E /* PortfolioContainer.xcdatamodeld */; };
+		3061124B28F8EF1B00957C9E /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061124A28F8EF1B00957C9E /* PortfolioDataService.swift */; };
 		307591C028F4673F005C2A87 /* ExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307591BF28F4673F005C2A87 /* ExpandableText.swift */; };
 		307591C228F48699005C2A87 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307591C128F48699005C2A87 /* PreferenceKeys.swift */; };
 		307591C428F486E7005C2A87 /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307591C328F486E7005C2A87 /* InputStyle.swift */; };
@@ -39,8 +41,6 @@
 		30DDA88828E231A600393AB3 /* BrazeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88728E231A600393AB3 /* BrazeApp.swift */; };
 		30DDA88A28E231A600393AB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA88928E231A600393AB3 /* HomeView.swift */; };
 		30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */; };
-		30DDA89128E231B000393AB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA89028E231B000393AB3 /* Persistence.swift */; };
-		30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */; };
 		30DDA89E28E231B000393AB3 /* BrazeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA89D28E231B000393AB3 /* BrazeTests.swift */; };
 		30DDA8A828E231B000393AB3 /* BrazeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8A728E231B000393AB3 /* BrazeUITests.swift */; };
 		30DDA8AA28E231B000393AB3 /* BrazeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8A928E231B000393AB3 /* BrazeUITestsLaunchTests.swift */; };
@@ -91,6 +91,8 @@
 		3050F88E28F44A2E00B6D307 /* AngularButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngularButtonStyle.swift; sourceTree = "<group>"; };
 		3050F89128F44A8B00B6D307 /* StrokeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeStyle.swift; sourceTree = "<group>"; };
 		3052F74828EE30310089CEC9 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		3061124828F8EE2E00957C9E /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		3061124A28F8EF1B00957C9E /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		307591BF28F4673F005C2A87 /* ExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableText.swift; sourceTree = "<group>"; };
 		307591C128F48699005C2A87 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		307591C328F486E7005C2A87 /* InputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStyle.swift; sourceTree = "<group>"; };
@@ -112,8 +114,6 @@
 		30DDA88728E231A600393AB3 /* BrazeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeApp.swift; sourceTree = "<group>"; };
 		30DDA88928E231A600393AB3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		30DDA88E28E231B000393AB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		30DDA89028E231B000393AB3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		30DDA89328E231B000393AB3 /* Braze.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Braze.xcdatamodel; sourceTree = "<group>"; };
 		30DDA89928E231B000393AB3 /* BrazeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrazeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DDA89D28E231B000393AB3 /* BrazeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrazeTests.swift; sourceTree = "<group>"; };
 		30DDA8A328E231B000393AB3 /* BrazeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrazeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +163,7 @@
 				300015FB28E9460C0081ACFF /* CoinDataService.swift */,
 				30FC3F9728EF7BBF001FD042 /* CoinImageService.swift */,
 				30A554D428F2386800C6CA36 /* MarketDataService.swift */,
+				3061124A28F8EF1B00957C9E /* PortfolioDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +249,7 @@
 				30BD3A6828E86F870060A03E /* CoinModel.swift */,
 				304A3C5828F1623400D30043 /* StatisticsModel.swift */,
 				30A554D228F2325800C6CA36 /* MarketDataModel.swift */,
+				3061124728F8EE2E00957C9E /* PortfolioContainer.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,8 +295,6 @@
 				30BBD82428E25A160051FC88 /* Home */,
 				30DDA88D28E231B000393AB3 /* Preview Content */,
 				30BBD82828E25AD60051FC88 /* Extensions */,
-				30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */,
-				30DDA89028E231B000393AB3 /* Persistence.swift */,
 				30DDA8B628E2323400393AB3 /* Assets.xcassets */,
 				3050F89028F44A3400B6D307 /* Styles */,
 				30DBA60228F611AD0031FF38 /* Animations */,
@@ -485,8 +485,8 @@
 				3052F74928EE30310089CEC9 /* NetworkingManager.swift in Sources */,
 				30BD3A7128E87E790060A03E /* RoundedCorner.swift in Sources */,
 				30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */,
+				3061124B28F8EF1B00957C9E /* PortfolioDataService.swift in Sources */,
 				3092805D28E924BC00639EA9 /* PortfolioRowViews.swift in Sources */,
-				30DDA89128E231B000393AB3 /* Persistence.swift in Sources */,
 				30FC3F9628EF7A48001FD042 /* CoinImageView.swift in Sources */,
 				300015FC28E9460C0081ACFF /* CoinDataService.swift in Sources */,
 				30BD3A6F28E87A720060A03E /* Color.swift in Sources */,
@@ -506,7 +506,6 @@
 				3050F88D28F449B800B6D307 /* LongButton.swift in Sources */,
 				3050F88F28F44A2E00B6D307 /* AngularButtonStyle.swift in Sources */,
 				30DDA8BF28E24C1500393AB3 /* ProfileButtons.swift in Sources */,
-				30DDA89428E231B000393AB3 /* Braze.xcdatamodeld in Sources */,
 				30FC3F9A28EF7D76001FD042 /* CoinImageViewModel.swift in Sources */,
 				30032FBF28F3A1AC00B82835 /* XMarkButton.swift in Sources */,
 				307591C228F48699005C2A87 /* PreferenceKeys.swift in Sources */,
@@ -514,6 +513,7 @@
 				30F1A7F128F3AC0600415D5D /* CoinLogoView.swift in Sources */,
 				3048518728E8A6320006A23B /* HomeViewModel.swift in Sources */,
 				30A554D328F2325800C6CA36 /* MarketDataModel.swift in Sources */,
+				3061124928F8EE2E00957C9E /* PortfolioContainer.xcdatamodeld in Sources */,
 				30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */,
 				30DBA60128F611A70031FF38 /* AnimatedCircles.swift in Sources */,
 				30FC3F9E28F01318001FD042 /* SearchBarView.swift in Sources */,
@@ -855,13 +855,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		30DDA89228E231B000393AB3 /* Braze.xcdatamodeld */ = {
+		3061124728F8EE2E00957C9E /* PortfolioContainer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				30DDA89328E231B000393AB3 /* Braze.xcdatamodel */,
+				3061124828F8EE2E00957C9E /* PortfolioContainer.xcdatamodel */,
 			);
-			currentVersion = 30DDA89328E231B000393AB3 /* Braze.xcdatamodel */;
-			path = Braze.xcdatamodeld;
+			currentVersion = 3061124828F8EE2E00957C9E /* PortfolioContainer.xcdatamodel */;
+			path = PortfolioContainer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

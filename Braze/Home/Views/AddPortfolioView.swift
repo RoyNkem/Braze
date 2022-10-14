@@ -21,7 +21,7 @@ struct AddPortfolioView: View {
     @State private var searchBarY: CGFloat = 120
     @State private var coinQuantity: CGFloat = 0 // y axis coordinates
     @State private var circleY: CGFloat = 120
-    @State private var showSaveButtoin: Bool = false
+    @State private var showSaveButton: Bool = false
     
     var selectedGradient: LinearGradient = LinearGradient(
         colors: [.theme.purple, .theme.blue, .theme.purple],
@@ -41,7 +41,7 @@ struct AddPortfolioView: View {
                         noCoinFound //conditional View that shows when there are no coin results
                         coinLogoList //scrollView that enables selection of coin after network request
                         
-                        if selectedCoin != nil {
+                        if selectedCoin != nil { //show field calculator
                             inputCoinQuantityField
                         }
                     }
@@ -52,6 +52,11 @@ struct AddPortfolioView: View {
             .coordinateSpace(name: "scroll")
             .background(Color.theme.homeBackground.opacity(0.3))
             .ignoresSafeArea(.container, edges: .top)
+            .onChange(of: vm.searchText) { value in
+                if value == "" {
+                    removeSelectedCoin()
+                }
+            }
             
             XMarkButton()
             
@@ -194,6 +199,12 @@ extension AddPortfolioView {
         //hide keyboard
         UIApplication.shared.didEndEditing()
         
+        //hide save button
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                showSaveButton =  false
+            }
+        }
     }
     
     private func removeSelectedCoin() {

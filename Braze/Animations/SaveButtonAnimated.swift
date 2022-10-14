@@ -36,7 +36,7 @@ struct SaveButtonAnimated: View {
                             .blendMode(.luminosity)
                             .frame(width: (status == .finished) ? 40 : 60,
                                    height: (status == .started) ? 30 : 30)
-                            .animation(.linear(duration: animationTime))
+                            .animation(.linear(duration: animationTime - 0.1), value: status != .finished)
                             .shadow(color: .black.opacity(0.2), radius: 2, x: 1, y: 3)
                     }
                     
@@ -53,7 +53,8 @@ struct SaveButtonAnimated: View {
                             .foregroundColor(.black.opacity(0.7))
                             .opacity((status == .started) ? 0 : 1)
 //                            .opacity((status == .ready) ? 1 : 0)
-                            .animation(.linear(duration: animationTime - 0.1))
+//                            .animation(.linear(duration: animationTime - 0.1))
+                            .animation(.linear(duration: animationTime - 0.1), value: status != .finished)
                     }
                     
                     Image(systemName: "checkmark")
@@ -92,7 +93,8 @@ struct SaveButtonAnimated: View {
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
             withAnimation {
                 status = .ready
-            }        }
+            }
+        }
     }
     
 }
