@@ -130,6 +130,7 @@ extension HomeView {
         HStack {
             ProfileButtons(icon: "plus", text: "Add") {
                 showAddPortfolioView = true
+                print("add button clicked")
             }
             
             Spacer()
@@ -216,7 +217,7 @@ extension HomeView {
                 Spacer()
             }
             
-            ForEach(vm.allCoins) { coin in
+            ForEach(vm.portfolioCoins) { coin in
                 PortfolioRowViews(coin: coin)
             }
         }

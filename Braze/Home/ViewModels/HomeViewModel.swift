@@ -80,6 +80,9 @@ class HomeViewModel: ObservableObject {
     
     func updatePortfolio(coin: CoinModel, amount: Double) {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+        if portfolioCoins.count > 1 {
+            print("Saved to portfolio")
+        }
     }
     
     //MARK: func filterCoins
