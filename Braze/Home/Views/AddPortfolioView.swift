@@ -87,8 +87,10 @@ extension AddPortfolioView {
             
             Spacer()
             
-            SaveButtonAnimated()
-                .opacity(selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? 1.0:0.0)
+            SaveButtonAnimated() {
+                saveButtonPressed()
+            }
+            .opacity(selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? 1.0:0.0)
         }
         .padding(.horizontal)
         .padding(.bottom, 10)
@@ -105,13 +107,12 @@ extension AddPortfolioView {
         
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
-                ForEach(vm.allCoins) { coin in
+                ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.allCoins) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
                         .onTapGesture {
                             withAnimation(.easeIn(duration: 0.5)) {
-                                selectedCoin = coin
-                                isShowingBottomCard = true
+                                updateSelectedCoin(coin: coin)
                             }
                         }
                         .background(
@@ -124,6 +125,18 @@ extension AddPortfolioView {
                 }
             }
             .padding(.leading)
+        }
+    }
+    
+    private func updateSelectedCoin(coin: CoinModel) {
+        selectedCoin = coin
+        isShowingBottomCard = true
+        
+        if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == coin.id }),
+           let amount = portfolioCoin.currentHoldings {
+            quantityText = "\(amount)"
+        } else {
+            quantityText = ""
         }
     }
     
@@ -188,11 +201,16 @@ extension AddPortfolioView {
     
     private func saveButtonPressed() {
         
-        guard let coin = selectedCoin else { return }
+        guard
+            let coin = selectedCoin,
+            let amount = Double(quantityText)
+        else { return }
         
         // save to portfolio
+        vm.updatePortfolio(coin: coin, amount: amount)
         
-        withAnimation {
+        //show save Button
+        withAnimation(.easeIn) {
             removeSelectedCoin()
         }
         

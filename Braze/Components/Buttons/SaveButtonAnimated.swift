@@ -15,13 +15,23 @@ enum SaveStatus {
 
 struct SaveButtonAnimated: View {
     
-    @State private var status: SaveStatus = .ready
+    var clicked: (() -> Void)
+    @State private var status: SaveStatus
     
-    private var progressBarWidth: CGFloat = 30
-    private var animationTime: TimeInterval = 0.1
-    private var progressBarAnimationTime: TimeInterval = 0.5
+    private let progressBarWidth: CGFloat
+    private let animationTime: TimeInterval
+    private let progressBarAnimationTime: TimeInterval
     
     @State private var isPlaced = false
+    
+    public init(clicked: @escaping () -> Void, status: SaveStatus = .ready, progressBarWidth: CGFloat = 30, animationTime: TimeInterval = 0.1, progressBarAnimationTime: TimeInterval = 0.5, isPlaced: Bool = false) {
+        self.clicked = clicked
+        self.status = status
+        self.progressBarWidth = progressBarWidth
+        self.animationTime = animationTime
+        self.progressBarAnimationTime = progressBarAnimationTime
+        self.isPlaced = isPlaced
+    }
     
     var body: some View {
         ZStack() {
@@ -101,7 +111,9 @@ struct SaveButtonAnimated: View {
 
 struct SaveButtonAnimated_Previews: PreviewProvider {
     static var previews: some View {
-        SaveButtonAnimated()
+        SaveButtonAnimated() {
+            print("save button clicked")
+        }
         //            .preferredColorScheme(.dark)
     }
 }

@@ -227,6 +227,7 @@
 				30BBD82928E25B440051FC88 /* CircleButtonView.swift */,
 				30032FBE28F3A1AC00B82835 /* XMarkButton.swift */,
 				3050F88C28F449B800B6D307 /* LongButton.swift */,
+				30DBA60528F6206B0031FF38 /* SaveButtonAnimated.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -259,7 +260,6 @@
 			children = (
 				30032FBC28F3634C00B82835 /* Animation.swift */,
 				30DBA60028F611A70031FF38 /* AnimatedCircles.swift */,
-				30DBA60528F6206B0031FF38 /* SaveButtonAnimated.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
