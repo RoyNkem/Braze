@@ -18,9 +18,10 @@ struct AddPortfolioView: View {
     @State private var selectedCoin: CoinModel? = nil
     @State private var isShowingBottomCard:  Bool = false
     @State private var quantityText: String = ""
-    @State var searchBarY: CGFloat = 120
-    @State var coinQuantity: CGFloat = 0 // y axis coordinates
-    @State var circleY: CGFloat = 120
+    @State private var searchBarY: CGFloat = 120
+    @State private var coinQuantity: CGFloat = 0 // y axis coordinates
+    @State private var circleY: CGFloat = 120
+    @State private var showSaveButtoin: Bool = false
     
     var selectedGradient: LinearGradient = LinearGradient(
         colors: [.theme.purple, .theme.blue, .theme.purple],
@@ -41,18 +42,7 @@ struct AddPortfolioView: View {
                         coinLogoList //scrollView that enables selection of coin after network request
                         
                         if selectedCoin != nil {
-                            VStack {
-                                HStack {
-                                    Text("Current Price of \(selectedCoin?.symbol.uppercased() ?? ""):")
-                                    Spacer()
-                                    Text(selectedCoin?.currentPrice.asCurrencyWithTwoDecimals() ?? "")
-                                        .bold()
-                                }
-                                addCoinQuantityField
-                                
-                            }
-                            .padding(isSmallHeight() ? 10:15)
-                            .custom(font: .medium, size: isSmallHeight() ? 13:16)
+                            inputCoinQuantityField
                         }
                     }
                     .padding(.vertical)
@@ -76,7 +66,7 @@ struct AddPortfolioView: View {
 struct AddPortfolioView_Previews: PreviewProvider {
     static var previews: some View {
         AddPortfolioView()
-//            .preferredColorScheme(.dark)
+        //            .preferredColorScheme(.dark)
             .environmentObject(dev.homeVM)
     }
 }
@@ -86,10 +76,17 @@ extension AddPortfolioView {
     //MARK: editPortfolioText
     private var editPortfolioText: some View {
         
-        Text("Edit Portfolio")
-            .custom(font: .bold, size: 30)
-            .padding(.horizontal)
-            .padding(.vertical, isSmallHeight() ? 8:1)
+        HStack {
+            Text("Edit Portfolio")
+                .custom(font: .bold, size: 30)
+            
+            Spacer()
+            
+            SaveButtonAnimated()
+                .opacity(selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? 1.0:0.0)
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 10)
     }
     
     //MARK: searchBar
@@ -121,7 +118,6 @@ extension AddPortfolioView {
                         )
                 }
             }
-            .padding(.vertical,4)
             .padding(.leading)
         }
     }
@@ -170,11 +166,38 @@ extension AddPortfolioView {
         return 0
     }
     
-    //MARK: divider
-    private var divider: some View {
-        Rectangle()
-            .frame(height: 1)
-            .foregroundColor(.secondary)
+    //MARK: inputCoinQuantity
+    private var inputCoinQuantityField: some View {
+        VStack {
+            HStack {
+                Text("Current Price of \(selectedCoin?.symbol.uppercased() ?? ""):")
+                Spacer()
+                Text(selectedCoin?.currentPrice.asCurrencyWithTwoDecimals() ?? "")
+                    .bold()
+            }
+            addCoinQuantityField
+        }
+        .padding(isSmallHeight() ? 12:17)
+        .custom(font: .medium, size: isSmallHeight() ? 13:16)
     }
     
+    private func saveButtonPressed() {
+        
+        guard let coin = selectedCoin else { return }
+        
+        // save to portfolio
+        
+        withAnimation {
+            removeSelectedCoin()
+        }
+        
+        //hide keyboard
+        UIApplication.shared.didEndEditing()
+        
+    }
+    
+    private func removeSelectedCoin() {
+        selectedCoin = nil
+        vm.searchText = ""
+    }
 }
