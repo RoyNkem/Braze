@@ -23,6 +23,7 @@ class HomeViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     private let coinDataService = CoinDataService()
+    private let portfolioDataService = PortfolioDataService()
     private let marketDataService = MarketDataService()
     
     
@@ -36,7 +37,7 @@ class HomeViewModel: ObservableObject {
     
     func addSubscribers() {
         
-        // data service instance calls the func `get coin` which makes the network request and append the output coin to `allCoins`
+        //data service instance calls the func `get coin` which makes the network request and append the output coin to `allCoins`
         //the received values of coins is stored in the publisher var `allCoins` for home VM to use in home view
         $searchText
             .combineLatest(coinDataService.$allCoins)
@@ -49,6 +50,7 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
+        //update Market Data
         marketDataService.$marketData
             .map(mapGlobalMarketData) //transform the returned market data model type to statistics model
             .sink { [weak self] (returnedStats) in
@@ -57,6 +59,27 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
+        //update Portfolio coins. Subscribe to the all coins arr (filtered version)
+        $allCoins
+            .combineLatest(portfolioDataService.$savedEntities)
+            .map { (coinModels, portfolioEntities) -> [CoinModel] in
+                
+                coinModels
+                    .compactMap { (coin) -> CoinModel? in
+                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
+                            return nil
+                        }
+                        return coin.updateHoldings(amount: entity.amount)
+                }
+            }
+            .sink { [weak self] (returnedCoins) in
+                self?.portfolioCoins = returnedCoins
+            }
+            .store(in: &cancellables)
+    }
+    
+    func updatePortfolio(coin: CoinModel, amount: Double) {
+        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }
     
     //MARK: func filterCoins
