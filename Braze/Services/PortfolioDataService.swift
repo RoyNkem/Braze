@@ -16,7 +16,8 @@ class PortfolioDataService {
     private let containerName: String = "PortfolioContainer"
     private let entityName: String = "PortfolioEntity"
     
-    @Published var savedEntities: [PortfolioEntity] = [] //save result of call to fetch to this array. Bind & subscribe from other places in the app
+    ///Save result of call to fetch  from view context to this array. Bind & subscribe from other views in the app
+    @Published var savedEntities: [PortfolioEntity] = []
     
     init() {
         container = NSPersistentContainer(name: containerName)
@@ -50,7 +51,7 @@ class PortfolioDataService {
         //create fetch request -> NSFetch is generic so we need to give it a specific result type
         let request = NSFetchRequest<PortfolioEntity>(entityName: entityName)
         do {
-            savedEntities = try container.viewContext.fetch(request)
+            savedEntities = try container.viewContext.fetch(request) //call to fetch
         } catch {
            print("Error fetching Portfolio Entities: \(error)")
         }
