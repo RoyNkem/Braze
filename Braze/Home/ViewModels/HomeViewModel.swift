@@ -35,6 +35,7 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    //MARK: Subscriptions
     func addSubscribers() {
         
         //data service instance calls the func `get coin` which makes the network request and append the output coin to `allCoins`
@@ -80,9 +81,27 @@ class HomeViewModel: ObservableObject {
     
     func updatePortfolio(coin: CoinModel, amount: Double) {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
-        if portfolioCoins.count > 1 {
-            print("Saved to portfolio")
+    }
+    
+    func deleteportfolio(coin: CoinModel) {
+        portfolioDataService.deletePortfolio(coin: coin)
+    }
+    
+    private func totalPortfolioCoinsValue() -> Double {
+        var coinValuesArray: [Double] = []
+        
+        for coin in portfolioCoins {
+            coinValuesArray.append(coin.currentHoldingsValue)
         }
+        return coinValuesArray.reduce(0, +)
+    }
+    
+    func percentageVal(coin: CoinModel) -> String {
+        
+        let fractionVal = coin.currentHoldingsValue / totalPortfolioCoinsValue()
+        let percentVal = fractionVal * 100
+        
+        return percentVal.asPercentageString()
     }
     
     //MARK: func filterCoins

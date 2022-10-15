@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PortfolioRowViews: View {
     
+    var text: String
     let coin: CoinModel
     let spacing: CGFloat = 6.0
     let size: CGFloat = 45
@@ -26,7 +27,7 @@ struct PortfolioRowViews: View {
             VStack(alignment: .leading, spacing: spacing) {
                 Text(coin.name)
                     .custom(font: .bold, size: isSmallHeight() ? 14:18)
-                Text(coin.currentHoldingsValue.asNumberString() + " of portfolio")
+                Text(text)
                     .custom(font: .medium, size: isSmallHeight() ? 12:16)
                     .foregroundColor(.secondary)
             }
@@ -66,9 +67,9 @@ struct PortfolioRowViews: View {
 struct PortfolioRowViews_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            PortfolioRowViews(coin: dev.coin)
+            PortfolioRowViews(text: "50%", coin: dev.coin)
                 .preferredColorScheme(.dark)
-            PortfolioRowViews(coin: dev.coin)
+            PortfolioRowViews(text: "50%", coin: dev.coin)
         }
     }
 }

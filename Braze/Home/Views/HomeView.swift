@@ -129,7 +129,7 @@ extension HomeView {
     private var buttonRow: some View {
         HStack {
             ProfileButtons(icon: "plus", text: "Add") {
-                testClosure()
+                showAddPortfolioView = true
             }
             
             Spacer()
@@ -149,11 +149,6 @@ extension HomeView {
             }
         }
         .padding(.horizontal, isSmallHeight() ? 9:12)
-    }
-    
-    private func testClosure() {
-        showAddPortfolioView = true
-        print("add button clicked")
     }
     
     //MARK: priceRow
@@ -222,7 +217,7 @@ extension HomeView {
             }
             
             ForEach(vm.portfolioCoins) { coin in
-                PortfolioRowViews(coin: coin)
+                PortfolioRowViews(text: vm.percentageVal(coin: coin)  + " of portfolio" , coin: coin)
             }
         }
         .padding(.horizontal, isSmallHeight() ? 12:14)
