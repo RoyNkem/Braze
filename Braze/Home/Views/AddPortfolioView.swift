@@ -12,15 +12,15 @@ struct AddPortfolioView: View {
         case searchBar
         case coinQuantity
     }
-    
+
     @EnvironmentObject private var vm: HomeViewModel
     @FocusState var focusedField: Field? // enum above
     @State private var selectedCoin: CoinModel? = nil
     @State private var isShowingBottomCard:  Bool = false
     @State private var quantityText: String = ""
-    @State private var searchBarY: CGFloat = 120
-    @State private var coinQuantity: CGFloat = 0 // y axis coordinates
-    @State private var circleY: CGFloat = 120
+//    @State private var searchBarY: CGFloat = 120
+//    @State private var coinQuantity: CGFloat = 0 // y axis coordinates
+//    @State private var circleY: CGFloat = 120
     @State private var showSaveButton: Bool = false
     
     var selectedGradient: LinearGradient = LinearGradient(
@@ -60,8 +60,15 @@ struct AddPortfolioView: View {
             
             XMarkButton()
             
-            CoinInfoSnippetView(isShowingCard: $isShowingBottomCard, coin: (selectedCoin ?? (vm.allCoins.first)) ?? CoinModel.instance) {
-                
+            CoinInfoSnippetView(isShowingCard: $isShowingBottomCard,
+                                text: vm.portfolioCoins.contains(where: { coin in
+                                        selectedCoin?.id == coin.id }) ? "Remove from Portfolio" : "Add to Portfolio",
+                                coin: (selectedCoin ?? (vm.allCoins.first)) ?? CoinModel.instance) {
+
+                //remove selected coin from portfolio in Core Data stacks
+                if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == selectedCoin?.id }) {
+                    vm.deleteportfolio(coin: portfolioCoin)
+                }
             }
         }
     }
@@ -86,11 +93,7 @@ extension AddPortfolioView {
                 .custom(font: .bold, size: 30)
             
             Spacer()
-//
-//            ProfileButtons(icon: "heart", text: "save") {
-//                saveButtonPressed()
-//            }
-//
+
             SaveButtonAnimated() {
                 saveButtonPressed()
             }
@@ -136,20 +139,14 @@ extension AddPortfolioView {
     private func updateSelectedCoin(coin: CoinModel) {
         selectedCoin = coin
         isShowingBottomCard = true
-        
-        if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == coin.id }),
-           let amount = portfolioCoin.currentHoldings {
-            quantityText = "\(amount)"
-        } else {
-            quantityText = ""
-        }
     }
     
     //MARK: addCoinQuantity
     private var addCoinQuantityField: some View {
         VStack(spacing: isSmallHeight() ? 12:20) {
-            TextField("Enter Quantity to add", text: $quantityText)
+            TextField(textFieldPlaceholder(), text: $quantityText)
                 .custom(font: .medium, size: isSmallHeight() ? 15:18)
+                .foregroundColor( isCoinInPortfolio() ? .black.opacity(0.5) : .black) //  change the color of the text if the coin is saved in Core Data Stacks
                 .inputStyle(icon: "mail")
                 .keyboardType(.decimalPad)
                 .disableAutocorrection(true)
@@ -162,6 +159,18 @@ extension AddPortfolioView {
                     .bold()
             }
         }
+    }
+    
+    private func textFieldPlaceholder() -> String {
+        if isCoinInPortfolio() {
+            return "You are holding \(selectedCoin?.currentHoldings ?? 0) vol of \( selectedCoin?.symbol.uppercased() ?? "")"
+        } else {
+            return "Enter Quantity to add"
+        }
+    }
+    
+    private func isCoinInPortfolio() -> Bool {
+        return vm.portfolioCoins.contains(where: { $0.id == selectedCoin?.id })
     }
     
     private var geometry: some View {

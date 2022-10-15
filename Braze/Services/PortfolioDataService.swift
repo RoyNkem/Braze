@@ -16,7 +16,7 @@ class PortfolioDataService {
     private let containerName: String = "PortfolioContainer"
     private let entityName: String = "PortfolioEntity"
     
-    ///Save result of call to fetch  from view context to this array. Bind & subscribe from other views in the app
+    ///This array saves the result (PortfolioEntity objects) of fetch request from the view context. Bind & subscribe to this property from other views in the app.
     @Published var savedEntities: [PortfolioEntity] = []
     
     init() {
@@ -31,7 +31,7 @@ class PortfolioDataService {
     
     //MARK: PUBLIC
     func updatePortfolio(coin: CoinModel, amount: Double) {
-        //check whether coin exists in Core Data (Portfolio) with its id
+        //check whether coin exists in Core Data Stack (Portfolio) with its id
         if let entity = savedEntities.first(where: { $0.coinID == coin.id }) {
             
             if amount > 0 {
@@ -44,24 +44,47 @@ class PortfolioDataService {
         }
     }
     
-    //MARK: PRIVATE
-    //fetch all data inside container
+    func deletePortfolio(coin: CoinModel) {
+        //we need to grab the particular portfolio coin
+        if let selectedEntity = savedEntities.first(where: { $0.coinID == coin.id }) {
+            remove(entity: selectedEntity)
+        }
+    }
+    
+    //MARK: PRIVATE CRUD Operations
+    //Create
+    private func add(coin: CoinModel, amount: Double) {
+        let entity = PortfolioEntity(context: container.viewContext)
+        
+        //assign atrtribute values
+        entity.coinID = coin.id
+        entity.amount = amount
+        
+        //save created entity and re-fetch data from the context
+        applyChanges()
+    }
+    
+    //Read
     private func getPortfolio() {
         
         //create fetch request -> NSFetch is generic so we need to give it a specific result type
         let request = NSFetchRequest<PortfolioEntity>(entityName: entityName)
         do {
             savedEntities = try container.viewContext.fetch(request) //call to fetch
-        } catch {
-           print("Error fetching Portfolio Entities: \(error)")
+        } catch let fetchError {
+           print("Error fetching Portfolio Entities: \(fetchError)")
         }
     }
     
-    //add & save to the coredata. Pass type CoinModel which is what we are recieving as input & convert to portfolio
-    private func add(coin: CoinModel, amount: Double) {
-        let entity = PortfolioEntity(context: container.viewContext)
-        entity.coinID = coin.id
+    //Update
+    private func update(entity: PortfolioEntity, amount: Double) {
         entity.amount = amount
+        applyChanges()
+    }
+    
+    //Delete
+    private func remove(entity: PortfolioEntity) {
+        container.viewContext.delete(entity)
         applyChanges()
     }
     
@@ -69,25 +92,14 @@ class PortfolioDataService {
     private func save() {
         do {
             try container.viewContext.save()
-        } catch {
-            print("Error saving to Core Data: \(error)")
+        } catch let saveError {
+            print("Error saving to Core Data: \(saveError)")
         }
-    }
-    
-    //update coin
-    private func update(entity: PortfolioEntity, amount: Double) {
-        entity.amount = amount
-        applyChanges()
-    }
-    
-    //remove a coin from Portfolio
-    private func remove(entity: PortfolioEntity) {
-        container.viewContext.delete(entity)
-        applyChanges()
     }
     
     ///Save the new context, re-fetch all coins from the context and set them to savedEntities var.
     /// - Update savedEntities Arr which will be pushed to subscribers -> call getPortfolio func again to create a new fetch request and save them to the arr
+    //helper function called every time a write operation is done on object
     private func applyChanges() {
         save()
         getPortfolio()

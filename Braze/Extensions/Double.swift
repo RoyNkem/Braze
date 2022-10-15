@@ -8,13 +8,12 @@
 import Foundation
 
 extension Double {
-    
+    //MARK: currencyFormatter2
     /// Converts Double types to formatted Currency type with 2 decimal places
     /// ```
     /// Examples:
     /// Convert 1234.56 to $1234.56
     /// ```
-    //MARK: currencyFormatter2
     private var currencyFormatter2: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
@@ -24,19 +23,20 @@ extension Double {
         return formatter
     }
     
+    //MARK: asCurrencyWithTwoDecimals
     /// Returns a string containing the formatted value to 2 decimal places of the Double provided
     /// ```
     /// Examples:
     /// Convert 1234.56 to "$1234.56"
     /// ```
     /// - Returns: A string containing the formatted value of number using the receiver’s current settings.
-    //MARK: asCurrencyWithTwoDecimals
     func asCurrencyWithTwoDecimals() -> String {
         
         let number = NSNumber(value: self)
         return currencyFormatter2.string(from: number) ?? "$0.00"
     }
 
+    //MARK: currencyFormatter6
     /// Converts Double types to formatted Currency type with 2 - 6 decimal places
     /// ```
     /// Examples:
@@ -44,7 +44,6 @@ extension Double {
     /// Convert 12.3456 to $12.3456
     /// Convert 0.123456 to $0.123456
     /// ```
-    //MARK: currencyFormatter6
     private var currencyFormatter6: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
@@ -54,6 +53,7 @@ extension Double {
         return formatter
     }
     
+    //MARK: asCurrencyWithSixDecimals
     /// Returns a string containing the formatted value of the Double provided
     /// ```
     /// Examples:
@@ -62,34 +62,33 @@ extension Double {
     /// Convert 0.123456 to "$0.123456"
     /// ```
     /// - Returns: A string containing the formatted value of number using the receiver’s current settings.
-    //MARK: asCurrencyWithSixDecimals
     func asCurrencyWithSixDecimals() -> String {
         
         let number = NSNumber(value: self)
         return currencyFormatter6.string(from: number) ?? "$0.00"
     }
     
+    //MARK: asNumberString
     /// Returns a string representation of a double with 2 decimal places
     /// ```
     /// Examples:
     /// Convert 1.23456 to "1.234"
     /// ```
-    //MARK: asNumberString
     func asNumberString() -> String {
         return String(format: "%.2f", self)
     }
     
+    //MARK: asPercentageString
     /// Returns a string representation of a double with percentage symbol
     /// ```
     /// Examples:
     /// Convert 1.23456 to "1.23%"
     /// ```
-    //MARK: asPercentageString
     func asPercentageString() -> String {
         return asNumberString() + "%"
     }
     
-    
+    //MARK: formattedWithAbbreviations
     /// Convert a Double to a String with K, M, Bn, Tr abbreviations.
     /// ```
     /// Convert 12 to 12.00
@@ -100,7 +99,6 @@ extension Double {
     /// Convert 123456789012 to 123.45Bn
     /// Convert 12345678901234 to 12.34Tr
     /// ```
-    //MARK: formattedWithAbbreviations
     func formattedWithAbbreviations() -> String {
         let num = abs(Double(self))
         let sign = (self < 0) ? "-" : ""
