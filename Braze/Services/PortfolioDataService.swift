@@ -37,7 +37,7 @@ class PortfolioDataService {
             if amount > 0 {
                 update(entity: entity, amount: amount)
             } else {
-                remove(entity: entity)
+                remove(entity: entity) //if amount requested is 0, it means user wants to remove it from portfolio
             }
         } else { // coin does not exist
             add(coin: coin, amount: amount)
@@ -62,6 +62,7 @@ class PortfolioDataService {
         let entity = PortfolioEntity(context: container.viewContext)
         entity.coinID = coin.id
         entity.amount = amount
+        applyChanges()
     }
     
     //save the context after the entity has been added to the context

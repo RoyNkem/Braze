@@ -129,8 +129,7 @@ extension HomeView {
     private var buttonRow: some View {
         HStack {
             ProfileButtons(icon: "plus", text: "Add") {
-                showAddPortfolioView = true
-                print("add button clicked")
+                testClosure()
             }
             
             Spacer()
@@ -150,6 +149,11 @@ extension HomeView {
             }
         }
         .padding(.horizontal, isSmallHeight() ? 9:12)
+    }
+    
+    private func testClosure() {
+        showAddPortfolioView = true
+        print("add button clicked")
     }
     
     //MARK: priceRow

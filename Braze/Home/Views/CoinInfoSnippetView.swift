@@ -113,8 +113,9 @@ extension CoinInfoSnippetView {
                     .shadow(color: .theme.background.opacity(0.5), radius: 10)
                     
                     LongButton(text: "Add to My Portfolio") {
-                        print("pressed add to portfolio")
-                        
+                        withAnimation {
+                            isShowingCard = false
+                        }
                     }
                 }
                 .custom(font: .bold, size: isSmallHeight() ? 13:16)

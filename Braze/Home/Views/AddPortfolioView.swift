@@ -86,7 +86,11 @@ extension AddPortfolioView {
                 .custom(font: .bold, size: 30)
             
             Spacer()
-            
+//
+//            ProfileButtons(icon: "heart", text: "save") {
+//                saveButtonPressed()
+//            }
+//
             SaveButtonAnimated() {
                 saveButtonPressed()
             }
@@ -114,6 +118,7 @@ extension AddPortfolioView {
                             withAnimation(.easeIn(duration: 0.5)) {
                                 updateSelectedCoin(coin: coin)
                             }
+                            UIApplication.shared.didEndEditing()
                         }
                         .background(
                             RoundedRectangle(cornerRadius: isSmallHeight() ? 9:12)
@@ -218,7 +223,7 @@ extension AddPortfolioView {
         UIApplication.shared.didEndEditing()
         
         //hide save button
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             withAnimation {
                 showSaveButton =  false
             }
