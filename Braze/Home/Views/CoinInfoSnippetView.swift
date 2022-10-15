@@ -14,7 +14,7 @@ struct CoinInfoSnippetView: View {
     @State private var prevDragTranslation = CGSize.zero
     @State private var isDragging: Bool = false
     
-    var text: String
+    var buttonTitle: String
     let minHeight: CGFloat = 350
     let maxHeight: CGFloat = 500
     let coin: CoinModel
@@ -58,7 +58,7 @@ struct CoinInfoSnippetView: View {
 
 struct CoinInfoSnippetView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinInfoSnippetView(isShowingCard: .constant(true), text: "Add to My Portfolio", coin: dev.coin) {
+        CoinInfoSnippetView(isShowingCard: .constant(true), buttonTitle: "Add to My Portfolio", coin: dev.coin) {
             print("button clicked")
         }
     }
@@ -112,13 +112,13 @@ extension CoinInfoSnippetView {
                     }
                     .shadow(color: .theme.background.opacity(0.5), radius: 10)
                     
-                    LongButton(text: text) {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                    LongButton(text: buttonTitle) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             withAnimation {
                                 isShowingCard = false
                                 self.clicked()
                             }
-                        }
+                        } 
                     }
                 }
                 .custom(font: .bold, size: isSmallHeight() ? 13:16)

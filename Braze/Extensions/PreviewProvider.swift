@@ -27,8 +27,8 @@ class DeveloperPreview {
     
     let homeVM = HomeViewModel()
     
-    let stat1 = StatisticsModel(title: "Market Cap", value: "$12.23Bn", percentageChange: 25.34, colors: [.theme.red, Color.orange])
-    let stat2 = StatisticsModel(title: "Total Volume", value: "$1.23Tr", colors: [.theme.red, Color.orange])
+    let stat1 = StatisticsModel(title: "Market Cap", value: "$12.23Bn", percentageChange: 25.34, colors: [.theme.red, Color.orange], cardTitle: "Top Performer")
+    let stat2 = StatisticsModel(title: "Total Volume", value: "$1.23Tr", colors: [.theme.red, Color.orange], cardTitle: "Circulating Supply")
     
     ///Sample coin for use in preview provider
     let coin = CoinModel(

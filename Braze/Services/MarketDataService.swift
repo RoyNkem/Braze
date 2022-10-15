@@ -17,7 +17,7 @@ class MarketDataService: ObservableObject {
         getData()
     }
     
-    private func getData() {
+    func getData() {
         let urlString = "https://api.coingecko.com/api/v3/global"
         
         guard let url = URL(string: urlString) else { return }

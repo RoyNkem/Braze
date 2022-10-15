@@ -101,7 +101,7 @@ struct SaveButtonAnimated: View {
             }
         }
         
-        Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { timer in
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
             withAnimation {
                 status = .ready
             }

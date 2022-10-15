@@ -49,7 +49,7 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showAddPortfolioView) {
-                AddPortfolioView()
+                AddCoinPortfolioView()
                     .environmentObject(vm)
             }
         }
@@ -157,7 +157,8 @@ extension HomeView {
             Text(vm.totalPortfolioCoinsValue().asCurrencyWithTwoDecimals())
                 .custom(font: .bold, size: isSmallHeight() ? 30:35)
             
-            Text("+4.34%").foregroundColor(.black)
+            Text(vm.totalPercentageChange(portfolioCoins: vm.portfolioCoins).asPercentageString())
+                .foregroundColor(.black)
                 .padding(5)
                 .background(Color.green.opacity(0.7))
                 .cornerRadius(10)
@@ -180,7 +181,7 @@ extension HomeView {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, spacing: 15) {
                 ForEach(vm.statistics) { stat in
-                    MarketStatisticsCard(stat: stat, coin: CoinModel.instance, colors: stat.colors)
+                    MarketStatisticsCard(cardTitle: stat.cardTitle, marketValue: stat.value, stat: stat, coin: CoinModel.instance, colors: stat.colors)
                 }
             }
         }
@@ -231,9 +232,14 @@ extension HomeView {
             Text("Last Price")
                 .offset(x: 10)
                 .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
-            Text("24h chg%")
-                .offset(x: -15)
-                .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+            HStack(spacing: 0) {
+                Text("24h chg%")
+                    .offset(x: -15)
+                    .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+                Image(systemName: "goforward")
+                    .rotationEffect(Angle(degrees: vm.isLoading ? 360:0), anchor: .center)
+                    .font(.caption)
+            }
         }
         .custom(font: .regular, size: isSmallWidth() ? 12:14)
         .foregroundColor(.theme.secondary)

@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct AddPortfolioView: View {
+struct AddCoinPortfolioView: View {
     enum Field: Hashable {
         case searchBar
         case coinQuantity
     }
-
+    
     @EnvironmentObject private var vm: HomeViewModel
     @FocusState var focusedField: Field? // enum above
     @State private var selectedCoin: CoinModel? = nil
     @State private var isShowingBottomCard:  Bool = false
     @State private var quantityText: String = ""
-//    @State private var searchBarY: CGFloat = 120
-//    @State private var coinQuantity: CGFloat = 0 // y axis coordinates
-//    @State private var circleY: CGFloat = 120
+    //    @State private var searchBarY: CGFloat = 120
+    //    @State private var coinQuantity: CGFloat = 0 // y axis coordinates
+    //    @State private var circleY: CGFloat = 120
     @State private var showSaveButton: Bool = false
     
     var selectedGradient: LinearGradient = LinearGradient(
@@ -61,10 +61,9 @@ struct AddPortfolioView: View {
             XMarkButton()
             
             CoinInfoSnippetView(isShowingCard: $isShowingBottomCard,
-                                text: vm.portfolioCoins.contains(where: { coin in
-                                        selectedCoin?.id == coin.id }) ? "Remove from Portfolio" : "Add to Portfolio",
+                                buttonTitle: isCoinInPortfolio() ? "Remove from Portfolio" : "Add to Portfolio",
                                 coin: (selectedCoin ?? (vm.allCoins.first)) ?? CoinModel.instance) {
-
+                
                 //remove selected coin from portfolio in Core Data stacks
                 if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == selectedCoin?.id }) {
                     vm.deleteportfolio(coin: portfolioCoin)
@@ -75,15 +74,15 @@ struct AddPortfolioView: View {
     
 }
 
-struct AddPortfolioView_Previews: PreviewProvider {
+struct AddCoinPortfolioView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPortfolioView()
+        AddCoinPortfolioView()
         //            .preferredColorScheme(.dark)
             .environmentObject(dev.homeVM)
     }
 }
 
-extension AddPortfolioView {
+extension AddCoinPortfolioView {
     
     //MARK: editPortfolioText
     private var editPortfolioText: some View {
@@ -93,7 +92,7 @@ extension AddPortfolioView {
                 .custom(font: .bold, size: 30)
             
             Spacer()
-
+            
             SaveButtonAnimated() {
                 saveButtonPressed()
             }
@@ -119,7 +118,8 @@ extension AddPortfolioView {
                         .frame(width: 75)
                         .onTapGesture {
                             withAnimation(.easeIn(duration: 0.5)) {
-                                updateSelectedCoin(coin: coin)
+                                selectedCoin = coin
+                                isShowingBottomCard = true
                             }
                             UIApplication.shared.didEndEditing()
                         }
@@ -134,11 +134,6 @@ extension AddPortfolioView {
             }
             .padding(.leading)
         }
-    }
-    
-    private func updateSelectedCoin(coin: CoinModel) {
-        selectedCoin = coin
-        isShowingBottomCard = true
     }
     
     //MARK: addCoinQuantity
@@ -161,9 +156,10 @@ extension AddPortfolioView {
         }
     }
     
+    //MARK: Helper functions
     private func textFieldPlaceholder() -> String {
         if isCoinInPortfolio() {
-            return "You are holding \(selectedCoin?.currentHoldings ?? 0) vol of \( selectedCoin?.symbol.uppercased() ?? "")"
+            return "You are holding \(selectedCoin?.currentHoldings ?? 0) vol of \(selectedCoin?.symbol.uppercased() ?? "")"
         } else {
             return "Enter Quantity to add"
         }
@@ -191,6 +187,9 @@ extension AddPortfolioView {
     }
     
     //MARK: func getCurrentValue
+    
+    /// Calculates the current value of selected coin based on the quantity or volume of coin entered in inputField.
+    /// - Returns: returns the value of the quantity entered
     private func getCurrentValue() -> Double {
         if let quantity = Double(quantityText) {
             return quantity * (selectedCoin?.currentPrice ?? 0)
@@ -232,7 +231,7 @@ extension AddPortfolioView {
         UIApplication.shared.didEndEditing()
         
         //hide save button
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             withAnimation {
                 showSaveButton =  false
             }

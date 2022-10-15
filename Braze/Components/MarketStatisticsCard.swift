@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MarketStatisticsCard: View {
     
+    let cardTitle: String
+    let marketValue: String
     let stat: StatisticsModel
     let coin: CoinModel
     let imageSize: CGFloat = 30.0
@@ -30,7 +32,7 @@ struct MarketStatisticsCard: View {
 
 struct MarketStatisticsCard_Previews: PreviewProvider {
     static var previews: some View {
-        MarketStatisticsCard(stat: dev.stat1, coin: dev.coin, colors: [.theme.red, Color.orange])
+        MarketStatisticsCard(cardTitle: "Top Performer", marketValue: "6.8", stat: dev.stat1, coin: dev.coin, colors: [.theme.red, Color.orange])
             .previewLayout(.sizeThatFits)
             .padding(20)
     }
@@ -43,7 +45,7 @@ extension MarketStatisticsCard {
     private var topPerformingCoinSection: some View {
         VStack(alignment: .leading, spacing: 0) {
             
-            Text("Top Performer")
+            Text(cardTitle)
                 .custom(font: .regular, size: isSmallHeight() ? 11:14)
             
             VStack(alignment: .leading) {
@@ -68,7 +70,8 @@ extension MarketStatisticsCard {
                             .rotationEffect( //rotate the arrow depending on profit or loss
                                 Angle(degrees:(stat.percentageChange ?? 0) >= 0 ? 0:180))
                         
-                        Text(coin.priceChangePercentage24H?.asPercentageString() ?? "0.0%")
+                        Text(marketValue)
+                        
                     }
                     
                     Text(coin.currentPrice.asCurrencyWithTwoDecimals())

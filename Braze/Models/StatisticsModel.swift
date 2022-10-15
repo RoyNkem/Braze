@@ -16,14 +16,16 @@ class StatisticsModel: Identifiable {
     let percentageChange: Double?
     let coin: CoinModel?
     let colors: [Color]
+    let cardTitle: String
     
     //custom init with percentageChange showing for initializatrion only when needed
-    init(title: String, value: String, percentageChange: Double? = nil, coin: CoinModel? = nil, colors: [Color]) {
+    init(title: String, value: String, percentageChange: Double? = nil, coin: CoinModel? = nil, colors: [Color], cardTitle: String) {
         self.title = title
         self.value = value
         self.percentageChange = percentageChange
         self.coin = coin
         self.colors = colors
+        self.cardTitle = cardTitle
     }
 }
 
