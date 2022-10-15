@@ -9,12 +9,9 @@ import SwiftUI
 
 struct XMarkButton: View {
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
-        Button {
-            withAnimation(.closeCard) { }
-            presentationMode.wrappedValue.dismiss()
-        } label: {
+        Button(action: dismissSheet) {
             Image(systemName: "xmark")
                 .font(.body.weight(.bold))
                 .foregroundColor(.secondary)
@@ -24,6 +21,13 @@ struct XMarkButton: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
         .padding(20)
         .ignoresSafeArea()
+    }
+    
+    private func dismissSheet() {
+        withAnimation(.closeCard) {
+            presentationMode.wrappedValue.dismiss()
+            print("x button pressed")
+        }
     }
 }
 

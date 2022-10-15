@@ -56,6 +56,8 @@ struct SaveButtonAnimated: View {
                         .frame(width: (status == .started) ? 60 : 60,
                                height: (status == .started) ? 30 : 30)
                         .shadow(color: .black.opacity(0.2), radius: 2, x: 1, y: 3)
+                        .padding()
+
                     
                     if status != .finished {
                         Text("Save")
@@ -78,15 +80,14 @@ struct SaveButtonAnimated: View {
                 .frame(width: progressBarWidth)
                 .onTapGesture {
                     download()
+                    clicked()
+                    print("save button tapped")
                 }
         }
         .frame(maxWidth: 70)
-        .onTapGesture {
-
-        }
     }
     
-    func download() {
+    private func download() {
         isPlaced.toggle()
         
         Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false) { timer in
@@ -114,6 +115,5 @@ struct SaveButtonAnimated_Previews: PreviewProvider {
         SaveButtonAnimated() {
             print("save button clicked")
         }
-        //            .preferredColorScheme(.dark)
     }
 }

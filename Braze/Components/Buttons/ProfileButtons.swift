@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileButtons: View {
     var icon: String
     var text: String
-    var clicked: (() -> Void) //closure for callback
+    var clicked: () -> ()//closure for callback
     
     var body: some View {
         VStack {
@@ -28,12 +28,13 @@ struct ProfileButtons: View {
                 .foregroundColor(.white.opacity(0.8))
         }
     }
+
 }
 
 struct Buttons_Previews: PreviewProvider {
     static var previews: some View {
         ProfileButtons(icon: "plus", text: "Add") {
-            print("Clicked")
+            print("add button clicked")
         }
         .padding(40)
         .previewLayout(.sizeThatFits)
