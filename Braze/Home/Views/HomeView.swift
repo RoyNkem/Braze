@@ -154,12 +154,8 @@ extension HomeView {
     //MARK: priceRow
     private var priceRow: some View {
         HStack(alignment: .bottom, spacing: 0) {
-            Text("$7,684.")
+            Text(vm.totalPortfolioCoinsValue().asCurrencyWithTwoDecimals())
                 .custom(font: .bold, size: isSmallHeight() ? 30:35)
-            
-            Text("00")
-                .custom(font: .medium, size: isSmallHeight() ? 18:20)
-                .offset(y: -5)
             
             Text("+4.34%").foregroundColor(.black)
                 .padding(5)
@@ -217,6 +213,7 @@ extension HomeView {
             }
             
             ForEach(vm.portfolioCoins) { coin in
+                //order the  coin arrangement
                 PortfolioRowViews(text: vm.percentageVal(coin: coin)  + " of portfolio" , coin: coin)
             }
         }
