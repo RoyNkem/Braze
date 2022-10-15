@@ -36,10 +36,6 @@ struct PortfolioRowViews: View {
             Spacer()
             
             VStack(alignment: .trailing, spacing: spacing) {
-                Text(coin.currentPrice.asCurrencyWithTwoDecimals())
-                    .custom(font: .medium, size: isSmallHeight() ? 14:18)
-                    .foregroundColor(.accentColor)
-                    .cornerRadius(5)
                 
                 HStack(spacing: 0) {
                     Image(systemName:
@@ -52,6 +48,10 @@ struct PortfolioRowViews: View {
                 .foregroundColor((coin.priceChangePercentage24H ?? 0) > 0  ?
                                  Color.theme.increaseRate : .theme.decreaseRate)
 
+                Text(coin.currentHoldingsValue.asCurrencyWithTwoDecimals())
+                    .custom(font: .medium, size: isSmallHeight() ? 14:18)
+                    .foregroundColor(.accentColor)
+                    .cornerRadius(5)
             }
             
         }

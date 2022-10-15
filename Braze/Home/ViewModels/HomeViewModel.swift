@@ -87,7 +87,7 @@ class HomeViewModel: ObservableObject {
         portfolioDataService.deletePortfolio(coin: coin)
     }
     
-    private func totalPortfolioCoinsValue() -> Double {
+    func totalPortfolioCoinsValue() -> Double {
         var coinValuesArray: [Double] = []
         
         for coin in portfolioCoins {
