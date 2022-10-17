@@ -5,7 +5,6 @@
 //  Created by Roy Aiyetin on 14/10/2022.
 //
 
-import Foundation
 import CoreData
 
 ///Does all the logic to get portfolio data from Core Data

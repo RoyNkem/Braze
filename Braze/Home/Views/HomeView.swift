@@ -45,7 +45,9 @@ struct HomeView: View {
                         .transition(.move(edge: .trailing))
                 } else {
                     portfolioCoinsList
-                        .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading).combined(with: .opacity)))
+                        .transition(.asymmetric(insertion: .move(edge: .leading),
+                                                removal: .move(edge: .leading).combined(with: .opacity))
+                        )
                 }
             }
             .sheet(isPresented: $showAddPortfolioView) {
@@ -204,42 +206,82 @@ extension HomeView {
     private var portfolioCoinsList: some View {
         LazyVStack(alignment: .leading) {
             
-            HStack {
+            HStack(alignment: .bottom) {
                 Text("Portfolio")
                     .custom(font: .bold, size: 30)
                     .font(.system(size: isSmallHeight() ? 23:30, weight: .bold, design: .rounded))
                     .padding(.bottom, -6)
                 
                 Spacer()
+                
+                HStack() {
+                    Text("Sort by")
+                    Image(systemName: "chevron.down")
+                        .opacity(vm.sortOption == .holdings || vm.sortOption == .holdingsReversed ? 1.0:0.0)
+                        .rotationEffect(Angle(degrees: vm.sortOption == .holdings ? 0:180))
+                }
+                .custom(font: .regular, size: 15)
+                .onTapGesture {
+                    withAnimation {
+                        vm.sortOption = vm.sortOption == .holdings ? .holdingsReversed : .holdings
+                    }
+                }
             }
             
             ForEach(vm.portfolioCoins) { coin in
                 //order the  coin arrangement
                 PortfolioRowViews(text: vm.percentageVal(coin: coin)  + " of portfolio" , coin: coin)
+                    .animation(.spring(response: 10.0, dampingFraction: 0.5), value: vm.sortOption)
             }
         }
         .padding(.horizontal, isSmallHeight() ? 12:14)
+        .padding(.top, isSmallHeight() ? 5:8)
     }
     
     //MARK: columnTitles
     private var columnTitles: some View {
         
         HStack {
-            Text("Coin")
-                .offset(x: 25)
-                .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+            HStack {
+                Text("Coin")
+                Image(systemName: "chevron.down")
+                    .opacity(vm.sortOption == .rank || vm.sortOption == .rankReversed ? 1.0:0.0)
+                    .rotationEffect(Angle(degrees: vm.sortOption == .rank ? 0:180))
+            }
+            .offset(x: 25)
+            .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+            .onTapGesture {
+                withAnimation {
+                    vm.sortOption = vm.sortOption == .rank ? .rankReversed : .rank
+                }
+            }
+
             Spacer()
-            Text("Last Price")
-                .offset(x: 10)
-                .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
-            HStack(spacing: 0) {
+            
+            HStack {
+                Text("Last Price")
+                Image(systemName: "chevron.down")
+                    .opacity(vm.sortOption == .price || vm.sortOption == .priceReversed ? 1.0:0.0)
+                    .rotationEffect(Angle(degrees: vm.sortOption == .price ? 0:180))
+            }
+            .offset(x: isSmallHeight() ? 15:20)
+            .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+            .onTapGesture {
+                withAnimation {
+                    vm.sortOption = vm.sortOption == .price ? .priceReversed : .price
+                }
+            }
+            
+            HStack(spacing: 5) {
                 Text("24h chg%")
-                    .offset(x: -15)
                     .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
                 Image(systemName: "goforward")
                     .rotationEffect(Angle(degrees: vm.isLoading ? 360:0), anchor: .center)
                     .font(.caption)
             }
+            .offset(x: -20)
+            .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+
         }
         .custom(font: .regular, size: isSmallWidth() ? 12:14)
         .foregroundColor(.theme.secondary)

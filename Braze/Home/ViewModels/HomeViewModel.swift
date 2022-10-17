@@ -5,7 +5,6 @@
 //  Created by Roy Aiyetin on 01/10/2022.
 //
 
-import Foundation
 import Combine
 import SwiftUI
 
@@ -15,7 +14,7 @@ class HomeViewModel: ObservableObject {
     @Published var statistics: [StatisticsModel] = []
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []
-    
+    @Published var sortOption: SortOption = .holdings
     @Published var searchText: String = ""
     
     @Published var isLoading: Bool = true
@@ -26,6 +25,9 @@ class HomeViewModel: ObservableObject {
     private let portfolioDataService = PortfolioDataService()
     private let marketDataService = MarketDataService()
     
+    enum SortOption {
+        case rank, rankReversed, holdings, holdingsReversed, price, priceReversed
+    }
     
     init() {
         isLoading = true
@@ -41,9 +43,9 @@ class HomeViewModel: ObservableObject {
         //data service instance calls the func `get coin` which makes the network request and append the output coin to `allCoins`
         //the received values of coins is stored in the publisher var `allCoins` for home VM to use in home view
         $searchText
-            .combineLatest(coinDataService.$allCoins)
+            .combineLatest(coinDataService.$allCoins, $sortOption)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main) //publishes the 2 publishers after 0.5 seconds to allow users type tangible texts
-            .map(filterCoins)
+            .map(filterAndSortCoins)
             .sink { [weak self] (returnedCoins) in
                 
                 guard let self = self else { return }
@@ -68,7 +70,9 @@ class HomeViewModel: ObservableObject {
             .combineLatest(portfolioDataService.$savedEntities)
             .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] (returnedCoins) in
-                self?.portfolioCoins = returnedCoins
+                guard let self = self else { return }
+                
+                self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins)
             }
             .store(in: &cancellables)
     }
@@ -82,6 +86,40 @@ class HomeViewModel: ObservableObject {
                 }
                 return coin.updateHoldings(amount: entity.amount)
             }
+    }
+    
+    //MARK: FilterAndSortCoins
+    private func filterAndSortCoins(text: String, startingCoins: [CoinModel], sort: SortOption) -> [CoinModel] {
+        var filteredCoins = filterCoins(text: text, startingCoins: startingCoins)
+        sortCoins(sort: sort, coins: &filteredCoins)
+
+        
+        return filteredCoins
+    }
+    
+    private func sortCoins(sort: SortOption, coins: inout [CoinModel]) {
+        switch sort {
+        case .rank, .holdings:
+            coins.sort { $0.rank < $1.rank }
+        case .rankReversed, .holdingsReversed:
+            coins.sort { $0.rank > $1.rank }
+        case .price:
+            coins.sort { $0.currentPrice < $1.currentPrice }
+        case .priceReversed:
+            coins.sort { $0.currentPrice > $1.currentPrice }
+        }
+    }
+    
+    private func sortPortfolioCoinsIfNeeded(coins: [CoinModel]) -> [CoinModel] {
+        // will onlyb sort by holdings
+        switch sortOption {
+        case .holdings:
+            return coins.sorted { $0.currentHoldingsValue > $1.currentHoldingsValue }
+        case .holdingsReversed:
+            return coins.sorted { $0.currentHoldingsValue < $1.currentHoldingsValue }
+        default:
+            return coins
+        }
     }
     
     //MARK: func filterCoins
@@ -127,10 +165,10 @@ class HomeViewModel: ObservableObject {
         
         let btcDominance = StatisticsModel(title: "BTC Dominance", value: data.btcDominant, colors: [.theme.blue, .theme.red], cardTitle: "Most Traded Crypto")
                 
-        let portfolio = StatisticsModel(title: "Portfolio Value",
-                                        value: totalPortfolioCoinsValue().asCurrencyWithTwoDecimals(),
-                                        percentageChange: totalPercentageChange(portfolioCoins: portfolioCoins),
-                                        colors: [.theme.red, .orange], cardTitle: "Portfolio")
+//        let portfolio = StatisticsModel(title: "Portfolio Value",
+//                                        value: totalPortfolioCoinsValue().asCurrencyWithTwoDecimals(),
+//                                        percentageChange: totalPercentageChange(portfolioCoins: portfolioCoins),
+//                                        colors: [.theme.red, .orange], cardTitle: "Portfolio")
         stats.append(contentsOf: [
             marketCap,
             volume,

@@ -5,7 +5,6 @@
 //  Created by Roy Aiyetin on 15/10/2022.
 //
 
-import Foundation
 import SwiftUI
 
 class HapticManager {
