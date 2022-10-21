@@ -1,5 +1,5 @@
 
-# Braze 
+# Braze <img src="https://user-images.githubusercontent.com/95645767/197086805-88b33a07-54e6-42ec-8ea8-2782de4db61d.jpg" width="35" height="35" />
 
 A Crypto Currency App created using `SwiftUI` with `MVVM` architecture.
 Braze tracks live prices of crypto coins and can create mock portfolio.
@@ -37,13 +37,24 @@ This repository is still in development and I will continue to add more features
 ## ScreenShots
 
 <p>
-<img src="https://user-images.githubusercontent.com/95645767/194769322-8fc6dae1-8716-4d57-ac74-0b162870e629.png" alt="Home View Dark" width = "240" />
-<img src="https://user-images.githubusercontent.com/95645767/194769300-ab05a313-7765-4d4a-9d13-63a87a570991.png" alt="Home View Dark" width = "241"/>
-<img src="https://user-images.githubusercontent.com/95645767/194769305-5b518942-df7b-42e7-b073-38b7411242d5.png" alt="Portfolio View Light" width = "240"/>
-<img src="https://user-images.githubusercontent.com/95645767/194769737-24bdef62-4de3-4f1a-9351-0032062186bf.png" alt="Portfolio View Dark" width = "241"/>
-<img src="https://user-images.githubusercontent.com/95645767/194769734-39590124-d265-451a-8324-31acf248bfdb.png" alt="Search View Light" width = "240"/>
-<img src="https://user-images.githubusercontent.com/95645767/194769295-ca3715aa-5676-4c2e-81c3-1ce5ca4fbb99.png" alt="Search View Dark" width = "241"/>
+<img src="https://user-images.githubusercontent.com/95645767/197089523-c92d7ac3-32ab-4c67-8386-d1cd2943fa46.png" alt="Home View Dark" width = "220" />
+<img src="https://user-images.githubusercontent.com/95645767/197089527-002480a4-949b-483e-93e4-a16f34649309.png" alt="Home View Dark" width = "220.5"/>
+<img src="https://user-images.githubusercontent.com/95645767/197089745-f7dcfcd3-1025-44f7-9a38-68a7d5c1887a.png" alt="Portfolio View Light" width = "220"/>
+<img src="https://user-images.githubusercontent.com/95645767/197089759-b643e3e6-8213-4b6b-ac1f-291ee44744a5.png" alt="Portfolio View Dark" width = "220.5"/>
+<img src="https://user-images.githubusercontent.com/95645767/197090055-c04ff549-93fd-41a0-9277-4d801aa50289.png" alt="Search View Light" width = "220"/>
+<img src="https://user-images.githubusercontent.com/95645767/197090065-d6ff88b7-d930-4927-88b0-b02a4439eb4e.png" alt="Search View Dark" width = "220.5"/>
+
+<img src="https://user-images.githubusercontent.com/95645767/197090120-160bebde-d7f0-439e-b49d-bc8247e03325.png" alt="Search View Light" width = "220"/>
+<img src="https://user-images.githubusercontent.com/95645767/197090129-c436cfd9-e38f-403f-8ac6-b84bd26ffd81.png" alt="Search View Light" width = "220"/>
+
+<img src="https://user-images.githubusercontent.com/95645767/197090076-78753467-ce53-47a1-beb1-d7ce2f1c2592.png" alt="Search View Light" width = "220"/>
  </p>
+ 
+
+
+
+
+
  
  <p align="right">(<a href="#top">back to top</a>)</p>
 
