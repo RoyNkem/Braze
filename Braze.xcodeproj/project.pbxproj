@@ -19,6 +19,7 @@
 		3050F88D28F449B800B6D307 /* LongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050F88C28F449B800B6D307 /* LongButton.swift */; };
 		3050F88F28F44A2E00B6D307 /* AngularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050F88E28F44A2E00B6D307 /* AngularButtonStyle.swift */; };
 		3050F89228F44A8B00B6D307 /* StrokeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050F89128F44A8B00B6D307 /* StrokeStyle.swift */; };
+		30520CEE2917FB5100062BDC /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 30DDA8B628E2323400393AB3 /* Assets.xcassets */; };
 		3052F74928EE30310089CEC9 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052F74828EE30310089CEC9 /* NetworkingManager.swift */; };
 		3061124928F8EE2E00957C9E /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3061124728F8EE2E00957C9E /* PortfolioContainer.xcdatamodeld */; };
 		3061124B28F8EF1B00957C9E /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061124A28F8EF1B00957C9E /* PortfolioDataService.swift */; };
@@ -29,7 +30,6 @@
 		3092805D28E924BC00639EA9 /* PortfolioRowViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */; };
 		30A554D328F2325800C6CA36 /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A554D228F2325800C6CA36 /* MarketDataModel.swift */; };
 		30A554D528F2386800C6CA36 /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A554D428F2386800C6CA36 /* MarketDataService.swift */; };
-		30A9AAED2917F69B008D56C0 /* Braze Assets Catalog.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A9AAEC2917F69B008D56C0 /* Braze Assets Catalog.xcassets */; };
 		30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBD82928E25B440051FC88 /* CircleButtonView.swift */; };
 		30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6828E86F870060A03E /* CoinModel.swift */; };
 		30BD3A6D28E87A480060A03E /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6C28E87A480060A03E /* PreviewProvider.swift */; };
@@ -62,6 +62,20 @@
 		30FC3F9C28EFECB5001FD042 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC3F9B28EFECB5001FD042 /* LocalFileManager.swift */; };
 		30FC3F9E28F01318001FD042 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC3F9D28F01318001FD042 /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		30520CEF2917FBEB00062BDC /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# actool\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		30DDA89A28E231B000393AB3 /* PBXContainerItemProxy */ = {
@@ -103,7 +117,6 @@
 		3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioRowViews.swift; sourceTree = "<group>"; };
 		30A554D228F2325800C6CA36 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
 		30A554D428F2386800C6CA36 /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
-		30A9AAEC2917F69B008D56C0 /* Braze Assets Catalog.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Braze Assets Catalog.xcassets"; sourceTree = "<group>"; };
 		30BBD82928E25B440051FC88 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		30BD3A6828E86F870060A03E /* CoinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinModel.swift; path = ../../../Resources/Models/CoinModel.swift; sourceTree = "<group>"; };
 		30BD3A6C28E87A480060A03E /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -300,7 +313,6 @@
 				30BBD82428E25A160051FC88 /* Home */,
 				30DDA88D28E231B000393AB3 /* Preview Content */,
 				30BBD82828E25AD60051FC88 /* Extensions */,
-				30A9AAEC2917F69B008D56C0 /* Braze Assets Catalog.xcassets */,
 				30DDA8B628E2323400393AB3 /* Assets.xcassets */,
 				3050F89028F44A3400B6D307 /* Styles */,
 				30DBA60228F611AD0031FF38 /* Animations */,
@@ -368,6 +380,7 @@
 				30DDA88228E231A600393AB3 /* Resources */,
 			);
 			buildRules = (
+				30520CEF2917FBEB00062BDC /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -460,7 +473,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30A9AAED2917F69B008D56C0 /* Braze Assets Catalog.xcassets in Resources */,
 				30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */,
 				30DDA8B728E2323400393AB3 /* Assets.xcassets in Resources */,
 			);
@@ -489,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30520CEE2917FB5100062BDC /* Assets.xcassets in Sources */,
 				3052F74928EE30310089CEC9 /* NetworkingManager.swift in Sources */,
 				30BD3A7128E87E790060A03E /* RoundedCorner.swift in Sources */,
 				30DDA8BB28E2326700393AB3 /* Extension.swift in Sources */,
@@ -575,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -606,6 +620,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -636,6 +651,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -667,6 +683,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -692,10 +709,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Braze/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Braze/Preview Content\" \"Braze/Assets\"";
 				DEVELOPMENT_TEAM = L77873QU8Q;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -721,10 +740,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Braze/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Braze/Preview Content\" \"Braze/Assets\"";
 				DEVELOPMENT_TEAM = L77873QU8Q;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
