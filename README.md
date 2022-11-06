@@ -14,15 +14,17 @@ This repository is still in development and I will continue to add more features
 
 
 ## Features :camera_flash:
-- [ ] CoreData
+- [x] CoreData
 - [x] Combine Framework 
 - [x] Light/dark mode 
 - [x] Live prices
-- [ ] User Portfolio 
+- [x] User Portfolio 
 - [ ] iphone and ipad support
 - [x] MVVM architecture
 - [x] Search Features
 - [ ] Details of Coins 
+- [ ] Coin Price History
+
 
 # Built with :heavy_heart_exclamation: using 
 
