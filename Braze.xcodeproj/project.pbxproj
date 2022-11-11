@@ -29,7 +29,6 @@
 		3092805D28E924BC00639EA9 /* PortfolioRowViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */; };
 		30A554D328F2325800C6CA36 /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A554D228F2325800C6CA36 /* MarketDataModel.swift */; };
 		30A554D528F2386800C6CA36 /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A554D428F2386800C6CA36 /* MarketDataService.swift */; };
-		30A9AAED2917F69B008D56C0 /* Braze Assets Catalog.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A9AAEC2917F69B008D56C0 /* Braze Assets Catalog.xcassets */; };
 		30BBD82A28E25B440051FC88 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBD82928E25B440051FC88 /* CircleButtonView.swift */; };
 		30BD3A6928E86F870060A03E /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6828E86F870060A03E /* CoinModel.swift */; };
 		30BD3A6D28E87A480060A03E /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD3A6C28E87A480060A03E /* PreviewProvider.swift */; };
@@ -103,7 +102,6 @@
 		3092805C28E924BC00639EA9 /* PortfolioRowViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioRowViews.swift; sourceTree = "<group>"; };
 		30A554D228F2325800C6CA36 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
 		30A554D428F2386800C6CA36 /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
-		30A9AAEC2917F69B008D56C0 /* Braze Assets Catalog.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Braze Assets Catalog.xcassets"; sourceTree = "<group>"; };
 		30BBD82928E25B440051FC88 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		30BD3A6828E86F870060A03E /* CoinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinModel.swift; path = ../../../Resources/Models/CoinModel.swift; sourceTree = "<group>"; };
 		30BD3A6C28E87A480060A03E /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				30BBD82428E25A160051FC88 /* Home */,
 				30DDA88D28E231B000393AB3 /* Preview Content */,
 				30BBD82828E25AD60051FC88 /* Extensions */,
-				30A9AAEC2917F69B008D56C0 /* Braze Assets Catalog.xcassets */,
 				30DDA8B628E2323400393AB3 /* Assets.xcassets */,
 				3050F89028F44A3400B6D307 /* Styles */,
 				30DBA60228F611AD0031FF38 /* Animations */,
@@ -460,7 +457,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30A9AAED2917F69B008D56C0 /* Braze Assets Catalog.xcassets in Resources */,
 				30DDA88F28E231B000393AB3 /* Preview Assets.xcassets in Resources */,
 				30DDA8B728E2323400393AB3 /* Assets.xcassets in Resources */,
 			);
