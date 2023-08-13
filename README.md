@@ -9,8 +9,8 @@ Using `Combine` framework with `Subscribers/Publishers` for efficient Data loadi
 
 ## Show some :heart: and star the repo to support the project.
 
-## Note
-This repository is still in development and I will continue to add more features to it.
+## ⚠️ Note
+**This project contains several errors. For fixes and updates, please refer to the [Braze 2.0 repository](https://github.com/RoyNkem/Braze_2.0)**.
 
 
 ## Features :camera_flash:
